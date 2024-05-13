@@ -1,0 +1,173 @@
+/* LOGIN */
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    circle,
+    rgba(123, 104, 238, 1) 0%,
+    rgba(123, 104, 238, 0.2) 35%,
+    rgba(123, 104, 238, 1) 100%
+  );
+}
+
+.container {
+  width: 80%;
+  height: 70vh;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 4px 6px 16px 1px rgba(0, 0, 0, 0.34);
+}
+
+.imagem {
+  width: 50%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle,
+    rgba(202, 89, 149, 0.2) 0%,
+    rgba(202, 89, 149, 0.25) 10%,
+    rgba(202, 89, 149, 0.3) 20%,
+    rgba(202, 89, 149, 0.35) 30%,
+    rgba(202, 89, 149, 0.4) 40%,
+    rgba(202, 89, 149, 0.45) 50%,
+    rgba(202, 89, 149, 0.5) 60%,
+    rgba(202, 89, 149, 0.55) 70%,
+    rgba(202, 89, 149, 0.6) 80%,
+    rgba(202, 89, 149, 0.65) 90%,
+    rgba(202, 89, 149, 0.7) 100%
+  );
+}
+
+.imagem img {
+  width: 80%;
+}
+
+form {
+  width: 50%;
+  height: 100%;
+  border-radius: 8px;
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-size: 25%;
+  background-position: 24px 2px;
+  background-color: #f8fbfd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2.5em;
+}
+
+form > header {
+  width: 100%;
+}
+
+form header h1 {
+  font-size: 2.5em;
+  text-align: center;
+  padding: 5px 5px;
+}
+
+.back {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+form .form-name {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 600;
+}
+
+a {
+  font-weight: 400;
+  text-decoration: underline;
+  font-size: 0.8em;
+  color: #5f06a3;
+}
+
+a:hover {
+  color: #dd10cc9a;
+}
+
+.botao {
+  width: 100%;
+  height: 25%;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.botao input {
+  width: 80%;
+  height: 35%;
+  background-color: #6006a3e3;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.botao input:hover {
+  background-color: #310553e3;
+}
+
+.form-name input {
+  margin-top: 1px;
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid #5f06a336;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
+  outline-color: #5f06a34f;
+  height: 50px;
+}
+
+input::placeholder {
+  font-size: 0.9em;
+}
+
+.senha {
+  padding-top: 10px;
+}
+
+.cad {
+  width: 80%;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  .imagem {
+    width: 100%;
+    height: 50vh;
+  }
+  form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header h1 {
+    font-size: 2em;
+  }
+  .form-name input {
+    height: 40px;
+  }
+}

@@ -1,6 +1,6 @@
 
 <?php
-require_once '../V.php';
+require_once '../View/recuperarSenhaUsuario.php';
 // Verifica se o método de requisição é POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o email foi enviado
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Você também pode adicionar o código para enviar o e-mail aqui
 
         // Redirecionar o usuário para uma página de confirmação
-        header("Location: ../view/confirmacao_recuperacao.php");
+        header("Location: ../View/recuperarSenhaUsuario.php");
         exit();
     }
 }

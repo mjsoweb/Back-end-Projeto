@@ -2,10 +2,8 @@
 require_once '../Control/listarUsuariosController.php';
 require_once '../Control/excluirUsuarioController.php';
 require_once '../Control/alterarUsuarioController.php';
-
 //echo '<pre>';
 //var_dump($todos);
-
 ?>
 
 </html>
@@ -27,23 +25,6 @@ require_once '../Control/alterarUsuarioController.php';
 </head>
 
 <body>
-    <?php
-    foreach ($todos as $t) { ?>
-
-        <!-- Exibir o nome do usuário -->
-        Nome:
-        <?php echo $t['nomeUsu']; ?>
-
-
-        <!-- Link para editar o usuário -->
-        <a href="alterarUsuario.php?idUsu=<?php echo $t['idUsu']; ?>">&#9998;</a>
-
-        <!-- Link para excluir o usuário -->
-        <a href="../Control/excluirUsuarioController.php?idUsu=<?php echo $t['idUsu']; ?>"> &#10008;</a>
-        </br>
-    <?php } ?>
-
-
     <!-- INICIO CABEÇALHO -->
     <header class="main_header">
         <div class="main_header_content">
@@ -63,48 +44,24 @@ require_once '../Control/alterarUsuarioController.php';
     <!-- FIM CABEÇALHO -->
     <div class="list_container">
         <h1>Listagem de Dados</h1>
-        <form action="../Control/alterarUsuarioController.php" name="alterarUsuario" id="alterarUsuario" method="POST">
-            <input type="hidden" name="idUsuario" value="<?php echo $retorno["idUsu"]; ?>">
-
-
-
-            <input type="submit" value="Salvar Alteração">
-            <table width="1150px">
-                <tr>
-                    <th>Nome: <input type="text" name="nomeUsuario" id="sobrenomeUsu"
-                            value="<?php echo $retorno["nomeUsu"]; ?>" required><br></th>
-                    <th>
-                        Sobrenome: <input type="text" name="sobrenomeUsu" id="sobrenomeUsu"
-                            value="<?php echo $retorno["sobrenomeUsu"]; ?>" required><br></th>
-                    <th> Email: <input type="email" name="emailUsu" id="emailUsu"
-                            value="<?php echo $retorno["emailUsu"]; ?>" required><br></th>
-                    <th>Perfil: <input type="text" name="PerfilUsu" id="perfilUsu"
-                            value="<?php echo $retorno["perfilUsu"]; ?>" required><br></th>
-                    <th>Situação: <input type="text" name="situacaoUsu" id="senhaUsu"
-                            value="<?php echo $retorno["perfilUsu"]; ?>" required><br></th>
-                    <th>Telefone: <input type="text" name="telefoneUsu" id="telefoneUsu"
-                            value="<?php echo $retorno["telefoneUsu"]; ?>" required><br></th>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>João</td>
-                    <td>30</td>
-                    <td>Arquiteto</td>
-                    <td>joao@joao.com</td>
-                    <td>casa João</td>
-                    <td><button>Editar</button>&nbsp;<button>Excluir</button></td>
-                </tr>
-                <tr>
-                    <td>Maria</td>
-                    <td>22</td>
-                    <td>Estudante</td>
-                    <td>maria@maria.com</td>
-                    <td>casa Maria</td>
-                    <td><button>Editar</button>&nbsp;<button>Excluir</button></td>
-                </tr>
-            </table>
-        </form>
+       
     </div>
+    <?php
+    foreach ($todos as $t) { ?>
+
+        <!-- Exibir o nome do usuário -->
+        Nome:
+        <?php echo $t['nomeUsu']; ?>
+
+
+        <!-- Link para editar o usuário -->
+        <a href="alterarUsuario.php?idUsu=<?php echo $t['idUsu']; ?>">&#9998;</a>
+
+        <!-- Link para excluir o usuário -->
+        <a href="../Control/excluirUsuarioController.php?idUsu=<?php echo $t['idUsu']; ?>"> &#10008;</a>
+        </br>
+    <?php } ?>
+
+
+    
 </body>

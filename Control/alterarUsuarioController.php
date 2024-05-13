@@ -29,9 +29,9 @@ $usuarioDAO = new UsuarioDAO();
 $sucesso = $usuarioDAO->alterarUsuario($usuarioDTO);
 
 if ($sucesso) {
-  $msg = "Usuário alterado com sucesso!";
+  $msg = "Usuário alterado com sucesso! <br>";
 } else {
-  $msg = "Aconteceu um problema na alteração de dados." . $sucesso;
+  $msg = "Aconteceu um problema na alteração de dados.<br>" . $sucesso;
 }
 echo "{$msg}";
 

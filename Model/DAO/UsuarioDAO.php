@@ -1,7 +1,7 @@
 <?php
 
 include "Conexao.php";
-require_once "../model/DTO/UsuarioDTO.php";
+require_once "../Model/DTO/UsuarioDTO.php";
 
 class UsuarioDAO
 {
@@ -88,7 +88,7 @@ class UsuarioDAO
     {
 
         try {
-            $sql = "UPDATE usuario1 SET nomeUsu=?
+            $sql = "UPDATE usuario SET nomeUsu=?
             WHERE idUsu= ?";
             $stmt = $this->pdo->prepare($sql);
 
@@ -102,9 +102,9 @@ class UsuarioDAO
             $retorno = $stmt->execute();
 
             if ($retorno) {
-                echo "Sucesso";
+                echo "\nSucesso\n";
             } else {
-                echo "erro";
+                echo "\nerro\n";
             }
 
             return $retorno;

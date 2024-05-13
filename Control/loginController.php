@@ -26,4 +26,3 @@ if ($sucesso) {
 }
 header("location:../index.php?msg=$msg");
 
-?>

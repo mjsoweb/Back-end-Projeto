@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="../_cdn/cboot.css" />
   <link rel="stylesheet" href="../_cdn/cstyle.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
   <title>Cadastre-se agora</title>
 </head>
@@ -15,7 +15,7 @@
 <body>
   <main class="container">
     <div class="imagem">
-      <img src="../img/cad.png" alt="cadastro" />
+      <img src="../img/cad.svg" alt="cadastro" />
       <div class="login">
         <a href="../View/loginUsu.php">Login</a>
       </div>
@@ -67,13 +67,22 @@
           </div>
         </div>
         <div class="botao">
-          <input type="submit" value="Cadastrar">
+          <input type="submit" value="Cadastrar" onclick="simpleAlert()">
         </div>
         <input type="hidden" name="perfilUsu" value="Cliente">
         <input type="hidden" name="situacaoUsu" value="Ativo">
       </form>
     </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function simpleAlert() {
+  Swal.fire('Cadastro realizado com sucesso :)');
+}
+</script>
+
   </main>
 </body>
+
 
 </html>
