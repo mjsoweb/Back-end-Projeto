@@ -36,12 +36,12 @@
       <nav class="main_header_content_menu">
         <ul>
         
-          <li><a href="../View/opcao.php">Central do Sistema</a></li>
           <li><a href="#categorias">Categorias</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="../View/cadastrarUsu.php">Cadastre-se</a></li>
           <li><a href="../View/loginUsu.php">Login</a></li>
-          <li><a href="#" class="icon-cart"></a></li>
+          <li><a href="../View/opcao.php">Painel do Sistema</a></li>
+<!--           <li><a href="#" class="icon-cart"></a></li> -->
         </ul>
       </nav>
     </div>
