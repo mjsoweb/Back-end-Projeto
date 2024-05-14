@@ -6,20 +6,18 @@ $idUsu = $_POST["idUsu"];
 $nomeUsu = $_POST["nomeUsu"];
 $sobrenomeUsu = $_POST["sobrenomeUsu"];
 $emailUsu = $_POST["emailUsu"];
-$senhaUsu = $_POST["senhaUsu"];
 $perfilUsu = $_POST["perfilUsu"];
 $situacaoUsu = $_POST["situacaoUsu"];
-$telefoneUsu = $_POST["telefoneUsu"];
+// $telefoneUsu = $_POST["telefoneUsu"];
 
 $usuarioDTO = new UsuarioDTO;
 $usuarioDTO->setIdUsu($idUsu);
 $usuarioDTO->setNomeUsu($nomeUsu);
 $usuarioDTO->setSobrenomeUsu($sobrenomeUsu);
 $usuarioDTO->setEmailUsu($emailUsu);
-$usuarioDTO->setSenhaUsu($senhaUsu);
 $usuarioDTO->setPerfilUsu($perfilUsu);
 $usuarioDTO->setSituacaoUsu($situacaoUsu);
-$usuarioDTO->setTelefoneUsu($telefoneUsu);
+// $usuarioDTO->setTelefoneUsu($telefoneUsu);
 
 
 
