@@ -83,7 +83,7 @@ class UsuarioDTO
     }
     public function setSobrenomeUsu($sobrenomeUsu)
     {
-        $this->nomeUsu = $sobrenomeUsu;
+        $this->sobrenomeUsu = $sobrenomeUsu;
 
     }
     public function getSobrenomeUsu()

@@ -8,6 +8,7 @@ require_once '../Model/DAO/UsuarioDAO.php';
 $nomeUsu = strip_tags($_POST["nomeUsu"]);
 $sobrenomeUsu = ($_POST["sobrenomeUsu"]);
 $emailUsu = strip_tags($_POST["emailUsu"]);
+$telefoneUsu = strip_tags($_POST["telefoneUsu"]);
 $senhaUsu = MD5($_POST["senhaUsu"]);
 $perfilUsu = strip_tags($_POST["perfilUsu"]);
 $situacaoUsu = strip_tags($_POST["situacaoUsu"]);
@@ -20,6 +21,7 @@ $usuarioDTO = new UsuarioDTO();
 $usuarioDTO->setNomeUsu($nomeUsu);
 $usuarioDTO->setSobrenomeUsu($sobrenomeUsu);
 $usuarioDTO->setEmailUsu($emailUsu);
+$usuarioDTO->setTelefoneUsu($telefoneUsu);
 $usuarioDTO->setSenhaUsu($senhaUsu);
 $usuarioDTO->setPerfilUsu($perfilUsu);
 $usuarioDTO->setSituacaoUsu($situacaoUsu);
@@ -32,11 +34,11 @@ $sucesso = $usuarioDAO->salvarUsuario($usuarioDTO);
 
 // var_dump($usuarioDTO);
 
-if ($sucesso) {
-  $msg = "Usuário cadastrado com sucesso!";
-} else {
-  $msg = "Aconteceu um problema no cadastramento<br>" . $sucesso;
-}
-echo "{$msg}";
+ if ($sucesso) {
+//$msg = "Usuário cadastrado com sucesso!";
+ } else {
+ $msg = "Aconteceu um problema no cadastramento<br>" . $sucesso;
+ }
+// echo "{$msg}";
 
 ?>

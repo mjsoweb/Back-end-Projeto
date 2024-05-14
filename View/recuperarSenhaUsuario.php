@@ -1,6 +1,7 @@
 <!-- view/recuperar_senha.php -->
 <!DOCTYPE html>
 <html lang="pt-br">
+  <link rel="stylesheet" href="../_cdn/cboot.css">
 <link rel="stylesheet" href="../_cdn/recuperarsenha.css">
 <head>
     <meta charset="UTF-8">

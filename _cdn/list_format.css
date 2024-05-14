@@ -1,0 +1,50 @@
+.list_container {
+  max-width: 50%;
+  margin: 30px auto;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #000;
+  font-weight: 700;
+  text-align: center;
+}
+table {
+  width: 90%;
+  background: radial-gradient(
+    circle,
+    rgba(202, 89, 149, 0.2) 0%,
+    rgba(202, 89, 149, 0.25) 10%,
+    rgba(202, 89, 149, 0.3) 20%,
+    rgba(202, 89, 149, 0.35) 30%,
+    rgba(202, 89, 149, 0.4) 40%,
+    rgba(202, 89, 149, 0.45) 50%,
+    rgba(202, 89, 149, 0.5) 60%,
+    rgba(202, 89, 149, 0.55) 70%,
+    rgba(202, 89, 149, 0.6) 80%,
+    rgba(202, 89, 149, 0.65) 90%,
+    rgba(202, 89, 149, 0.7) 100%
+  );
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 70px;
+}
+button {
+  background-color: blueviolet;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+}
+button:hover {
+  opacity: 1;
+}
+a {
+  cursor: pointer;
+  color: #fff;
+}

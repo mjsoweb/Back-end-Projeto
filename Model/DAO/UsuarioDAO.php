@@ -17,14 +17,15 @@ class UsuarioDAO
         //echo "{$usuarioDTO->getDtNascimentoUsu()}";
 
         try {
-            $sql = "INSERT INTO usuario (nomeUsu,sobrenomeUsu,emailUsu,
+            $sql = "INSERT INTO usuario (nomeUsu,sobrenomeUsu,emailUsu,telefoneUsu,
             senhaUsu,perfilUsu,situacaoUsu) 
-            VALUES (?,?,?,?,?,?)";
+            VALUES (?,?,?,?,?,?,?)";
             $stmt = $this->pdo->prepare($sql);
 
             $nomeUsu = $usuarioDTO->getNomeUsu();
             $sobrenomeUsu = $usuarioDTO->getSobrenomeUsu();
             $emailUsu = $usuarioDTO->getEmailUsu();
+            $telefoneUsu = $usuarioDTO->getTelefoneUsu();
             $senhaUsu = $usuarioDTO->getSenhaUsu();
             $perfilUsu = $usuarioDTO->getPerfilUsu();
             $situacaoUsu = $usuarioDTO->getSituacaoUsu();
@@ -34,9 +35,10 @@ class UsuarioDAO
             $stmt->bindValue(1, $nomeUsu);
             $stmt->bindValue(2, $sobrenomeUsu);
             $stmt->bindValue(3, $emailUsu);
-            $stmt->bindValue(4, $senhaUsu);
-            $stmt->bindValue(5, $perfilUsu);
-            $stmt->bindValue(6, $situacaoUsu);
+            $stmt->bindValue(4, $telefoneUsu);
+            $stmt->bindValue(5, $senhaUsu);
+            $stmt->bindValue(6, $perfilUsu);
+            $stmt->bindValue(7, $situacaoUsu);
 
             $retorno = $stmt->execute();
             return $retorno;
@@ -88,23 +90,43 @@ class UsuarioDAO
     {
 
         try {
-            $sql = "UPDATE usuario SET nomeUsu=?
-            WHERE idUsu= ?";
+            $sql = "UPDATE usuario SET 
+            nomeUsu = ?, 
+            sobrenomeUsu = ?, 
+            emailUsu = ?, 
+            telefoneUsu = ?, 
+            senhaUsu = ?, 
+            perfilUsu = ?, 
+            situacaoUsu = ?
+            WHERE idUsu = ?";
             $stmt = $this->pdo->prepare($sql);
 
-            $idUsuario = $usuarioDTO->getIdUsu();
-            $nomeUsuario = $usuarioDTO->getNomeUsu();
+            $idUsu= $usuarioDTO->getIdUsu();
+            $nomeUsu = $usuarioDTO->getNomeUsu();
+            $sobrenomeUsu= $usuarioDTO->getSobrenomeUsu();
+            $emailUsu= $usuarioDTO->getEmailUsu();
+            $telefoneUsu= $usuarioDTO->getTelefoneUsu();
+            $senhaUsu= $usuarioDTO->getsenhaUsu();
+            $perfilUsu= $usuarioDTO->getPerfilUsu();
+            $situacaoUsu= $usuarioDTO->getSituacaoUsu();
 
-
-            $stmt->bindValue(1, $nomeUsuario);
-            $stmt->bindValue(2, $idUsuario);
+            
+            $stmt->bindValue(1, $idUsu);
+            $stmt->bindValue(2, $nomeUsu);
+            $stmt->bindValue(3, $sobrenomeUsu);
+            $stmt->bindValue(4, $emailUsu);
+            $stmt->bindValue(5, $telefoneUsu);
+            $stmt->bindValue(6, $senhaUsu);
+            $stmt->bindValue(7, $perfilUsu);
+            $stmt->bindValue(8, $situacaoUsu);
+            
 
             $retorno = $stmt->execute();
 
             if ($retorno) {
-                echo "\nSucesso\n";
+              //  echo "\nSucesso\n";
             } else {
-                echo "\nerro\n";
+              //  echo "\nerro\n";
             }
 
             return $retorno;
@@ -114,10 +136,10 @@ class UsuarioDAO
     }
 
     //PesquisarUsuarioPorId
-    public function pesquisarUsuarioPorId($idUsuario)
+    public function pesquisarUsuarioPorId($idUsu)
     {
         try {
-            $sql = "SELECT * FROM usuario WHERE idUsu = {$idUsuario}; ";
+            $sql = "SELECT * FROM usuario WHERE idUsu = {$idUsu}; ";
             $stmt = $this->pdo->prepare($sql);
 
             $stmt->execute();

@@ -70,7 +70,7 @@ body {
 .form .form-name {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   font-weight: 600;
   max-width: 45%;
   min-width: 45%;

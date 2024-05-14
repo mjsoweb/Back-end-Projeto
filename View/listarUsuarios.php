@@ -19,6 +19,7 @@ require_once '../Control/alterarUsuarioController.php';
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet" />
     <link href="../_cdn/boot.css" rel="stylesheet" />
     <link href="../_cdn/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link href="../_cdn/list_format.css" rel="stylesheet" />
 
     <title>Meraki Moda Feminina</title>
@@ -35,7 +36,7 @@ require_once '../Control/alterarUsuarioController.php';
             <nav class="main_header_content_menu">
                 <ul>
                     <li>
-                        <a href="../index.php">Voltar</a>
+                        <a href="../View/indexAdm.php">Voltar</a>
                     </li>
                 </ul>
             </nav>
@@ -46,21 +47,68 @@ require_once '../Control/alterarUsuarioController.php';
         <h1>Listagem de Dados</h1>
        
     </div>
-    <?php
-    foreach ($todos as $t) { ?>
+    <table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($todos as $t): ?>
+        <tr>
+            <td><?php echo $t['nomeUsu']; ?></td>
+            <td><?php echo $t['sobrenomeUsu']; ?></td>
+            <td><?php echo $t['emailUsu']; ?></td>
+            <td><?php echo $t['telefoneUsu']; ?></td>
+            <td>
+                <!-- Link para editar o usuário -->
+               
+                <button onclick="confirmEdit(<?php echo $t['idUsu']; ?>)">&#9998; Editar</button>
+<button onclick="confirmDelete(<?php echo $t['idUsu']; ?>)">&#10008; Excluir</button>
 
-        <!-- Exibir o nome do usuário -->
-        Nome:
-        <?php echo $t['nomeUsu']; ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmEdit(idUsu) {
+        Swal.fire({
+            title: "Editar Usuário",
+            text: "Deseja realmente editar este usuário?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Sim",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "alterarUsuario.php?idUsu=" + idUsu;
+            }
+        });
+    }
 
+    function confirmDelete(idUsu) {
+        Swal.fire({
+            title: "Excluir Usuário",
+            text: "Deseja realmente excluir este usuário?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Sim, Excluir"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "../Control/excluirUsuarioController.php?idUsu=" + idUsu;
+            }
+        });
+    }
+</script>
 
-        <!-- Link para editar o usuário -->
-        <a href="alterarUsuario.php?idUsu=<?php echo $t['idUsu']; ?>">&#9998;</a>
-
-        <!-- Link para excluir o usuário -->
-        <a href="../Control/excluirUsuarioController.php?idUsu=<?php echo $t['idUsu']; ?>"> &#10008;</a>
-        </br>
-    <?php } ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
 
     

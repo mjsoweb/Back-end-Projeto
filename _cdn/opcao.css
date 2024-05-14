@@ -1,0 +1,38 @@
+body {
+  color: aliceblue;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+article {
+  background: rgb(255, 1, 86);
+  background: linear-gradient(
+    182deg,
+    rgba(255, 1, 86, 0.17) 0%,
+    rgba(255, 1, 86, 0.14) 35%,
+    rgba(255, 1, 86, 0.03) 100%
+  );
+  padding: 20px;
+  border-radius: 5%;
+  box-shadow: 4px 6px 16px 1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  opacity: 0.9;
+}
+article:hover {
+  opacity: 1;
+  border: 1px solid #bebebe;
+}
+.ajust {
+  width: 100%;
+  margin-top: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
+h2 {
+  color: black;
+}
