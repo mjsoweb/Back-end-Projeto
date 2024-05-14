@@ -94,8 +94,8 @@ class UsuarioDAO
             nomeUsu = ?, 
             sobrenomeUsu = ?, 
             emailUsu = ?, 
-            telefoneUsu = ?, 
-            senhaUsu = ?, 
+            -- telefoneUsu = ?, 
+            
             perfilUsu = ?, 
             situacaoUsu = ?
             WHERE idUsu = ?";
@@ -105,8 +105,8 @@ class UsuarioDAO
             $nomeUsu = $usuarioDTO->getNomeUsu();
             $sobrenomeUsu= $usuarioDTO->getSobrenomeUsu();
             $emailUsu= $usuarioDTO->getEmailUsu();
-            $telefoneUsu= $usuarioDTO->getTelefoneUsu();
-            $senhaUsu= $usuarioDTO->getsenhaUsu();
+            // $telefoneUsu= $usuarioDTO->getTelefoneUsu();
+            
             $perfilUsu= $usuarioDTO->getPerfilUsu();
             $situacaoUsu= $usuarioDTO->getSituacaoUsu();
 
@@ -115,18 +115,18 @@ class UsuarioDAO
             $stmt->bindValue(2, $nomeUsu);
             $stmt->bindValue(3, $sobrenomeUsu);
             $stmt->bindValue(4, $emailUsu);
-            $stmt->bindValue(5, $telefoneUsu);
-            $stmt->bindValue(6, $senhaUsu);
-            $stmt->bindValue(7, $perfilUsu);
-            $stmt->bindValue(8, $situacaoUsu);
+            // $stmt->bindValue(5, $telefoneUsu);
+           
+            $stmt->bindValue(5, $perfilUsu);
+            $stmt->bindValue(6, $situacaoUsu);
             
 
             $retorno = $stmt->execute();
 
             if ($retorno) {
-              //  echo "\nSucesso\n";
+               echo "\nSucesso\n";
             } else {
-              //  echo "\nerro\n";
+              echo "\nerro\n";
             }
 
             return $retorno;
