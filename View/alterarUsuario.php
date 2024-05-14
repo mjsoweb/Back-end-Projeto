@@ -41,20 +41,17 @@
           <form name="alterarUsu" id="alterarUsu" action="../Control/alterarUsuarioController.php" method="POST">
         
             <input type="hidden" name="idUsu" value="<?php echo $retorno["idUsu"]; ?>">
-            <table width="1150px">
+            <table>
               <tr>
                 <th>Nome: <input type="text" name="nomeUsu" id="nomeUsu"
                     value="<?php echo $retorno["nomeUsu"]; ?>" required></th>
-                <th>Sobrenome: <input type="text" name="sobrenomeUsu" id="sobrenomeUsu"
-                    value="<?php echo $retorno["sobrenomeUsu"]; ?>" required></th>
+                <th>Sobrenome: <input type="text" name="sobrenomeUsu" id="sobrenomeUsu" value="<?php echo $retorno["sobrenomeUsu"]; ?>" required></th>
                 <th>Email: <input type="email" name="emailUsu" id="emailUsu"
                     value="<?php echo $retorno["emailUsu"]; ?>" required></th>
                 <th>Perfil: <input type="text" name="perfilUsu" id="perfilUsu"
                     value="<?php echo $retorno["perfilUsu"]; ?>"></th>
                 <th>Situação: <input type="text" name="situacaoUsu" id="situacaoUsu"
-                    value="<?php echo $retorno["perfilUsu"]; ?>"></th>
-                <th>Telefone: <input type="text" name="telefoneUsu" id="telefoneUsu"
-                    value="<?php echo $retorno["telefoneUsu"]; ?>"></th>
+                    value="<?php echo $retorno["perfilUsu"]; ?>"></th> 
               </tr>
             </table>  
             <button type="submit" onclick="simpleAlert()">Salvar Alteração</button>
