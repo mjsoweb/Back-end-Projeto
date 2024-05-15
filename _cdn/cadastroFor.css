@@ -29,9 +29,11 @@ body {
 }
 
 .imagem img {
-  width: 80%; /* Ajusta a largura da imagem */
+  /* width: 80%; Ajusta a largura da imagem */
   height: 80%; /* Ajusta a altura da imagem */
-  /* object-fit: cover; Redimensiona a imagem mantendo a proporção */
+
+  padding: 5px 10px;
+  margin-top: 50px;
 }
 
 .form {
@@ -50,7 +52,7 @@ body {
 .form .form-align {
   display: flex;
   flex-direction: column; /* Alterado para empilhar os elementos */
-  gap: 10px;
+  gap: 5px;
 }
 
 .form .form-name {
@@ -72,11 +74,14 @@ div header {
 }
 
 .form header h1 {
-  font-size: 2.2em;
+  font-size: 2.3em;
   text-align: center;
   margin-left: 120px;
 }
-
+.back {
+  display: flex;
+  flex-direction: row-reverse;
+}
 .form header botao {
   margin-bottom: 50px;
   width: 14%;
