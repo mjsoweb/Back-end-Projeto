@@ -16,13 +16,13 @@
   <main class="container">
     <div class="imagem">
       <img src="../img/cad.svg" alt="voltar" />
-      <div class="login">
-        <a href="../index.php">Voltar</a>
-      </div>
     </div>
-
+    
     <div class="form">
       
+      <div class="back">
+        <a href="../index.php">Voltar</a>
+      </div>
       <header>
         <h1>Cadastre-se</h1>
         
