@@ -2,7 +2,7 @@
 require_once '../Model/DTO/UsuarioDTO.php';
 require_once '../Model/DAO/UsuarioDAO.php';
 
-$idUsu = $_POST["idUsu"];
+$idUsu =strip_tags($_POST["idUsu"]);
 $nomeUsu = $_POST["nomeUsu"];
 $sobrenomeUsu = $_POST["sobrenomeUsu"];
 $emailUsu = $_POST["emailUsu"];

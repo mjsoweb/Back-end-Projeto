@@ -14,8 +14,7 @@ class UsuarioDAO
     // INSERT
     public function salvarUsuario(UsuarioDTO $usuarioDTO)
     {
-        //echo "{$usuarioDTO->getDtNascimentoUsu()}";
-
+       
         try {
             $sql = "INSERT INTO usuario (nomeUsu,sobrenomeUsu,emailUsu,telefoneUsu,
             senhaUsu,perfilUsu,situacaoUsu) 
@@ -30,7 +29,6 @@ class UsuarioDAO
             $perfilUsu = $usuarioDTO->getPerfilUsu();
             $situacaoUsu = $usuarioDTO->getSituacaoUsu();
 
-            //var_dump($dtNascimentoUsu);
 
             $stmt->bindValue(1, $nomeUsu);
             $stmt->bindValue(2, $sobrenomeUsu);
@@ -46,6 +44,7 @@ class UsuarioDAO
             echo $exc->getMessage();
         }
     }
+
 
 
     //LISTAR USUÁRIOS
@@ -88,53 +87,51 @@ class UsuarioDAO
 
     public function alterarUsuario(UsuarioDTO $usuarioDTO)
     {
-
         try {
             $sql = "UPDATE usuario SET 
-            nomeUsu = ?, 
-            sobrenomeUsu = ?, 
-            emailUsu = ?, 
-            -- telefoneUsu = ?, 
-            
-            perfilUsu = ?, 
-            situacaoUsu = ?
-            WHERE idUsu = ?";
+                    nomeUsu = ?, 
+                    sobrenomeUsu = ?, 
+                    emailUsu = ?, 
+                    perfilUsu = ?, 
+                    situacaoUsu = ?
+                    WHERE idUsu = ?";
             $stmt = $this->pdo->prepare($sql);
-
-            $idUsu= $usuarioDTO->getIdUsu();
+    
+            // Obtém os dados do objeto UsuarioDTO
+            $idUsu = $usuarioDTO->getIdUsu();
             $nomeUsu = $usuarioDTO->getNomeUsu();
-            $sobrenomeUsu= $usuarioDTO->getSobrenomeUsu();
-            $emailUsu= $usuarioDTO->getEmailUsu();
-            // $telefoneUsu= $usuarioDTO->getTelefoneUsu();
-            
-            $perfilUsu= $usuarioDTO->getPerfilUsu();
-            $situacaoUsu= $usuarioDTO->getSituacaoUsu();
-
-            
-            $stmt->bindValue(1, $idUsu);
-            $stmt->bindValue(2, $nomeUsu);
-            $stmt->bindValue(3, $sobrenomeUsu);
-            $stmt->bindValue(4, $emailUsu);
-            // $stmt->bindValue(5, $telefoneUsu);
-           
-            $stmt->bindValue(5, $perfilUsu);
-            $stmt->bindValue(6, $situacaoUsu);
-            
-
+            $sobrenomeUsu = $usuarioDTO->getSobrenomeUsu();
+            $emailUsu = $usuarioDTO->getEmailUsu();
+            $perfilUsu = $usuarioDTO->getPerfilUsu();
+            $situacaoUsu = $usuarioDTO->getSituacaoUsu();
+    
+            // Vincula os valores aos parâmetros da consulta preparada
+            $stmt->bindValue(1, $nomeUsu);
+            $stmt->bindValue(2, $sobrenomeUsu);
+            $stmt->bindValue(3, $emailUsu);
+            $stmt->bindValue(4, $perfilUsu);
+            $stmt->bindValue(5, $situacaoUsu);
+            $stmt->bindValue(6, $idUsu); // O IDUsu é o último parâmetro na consulta SQL
+    
+            // Executa a consulta preparada
             $retorno = $stmt->execute();
-
+    
+            // Verifica se a consulta foi executada com sucesso
             if ($retorno) {
-               echo "\nSucesso\n";
+                // echo "\nSucesso\n";
+                return true;
             } else {
-              echo "\nerro\n";
+                // Se a consulta falhou, retorna falso e exibe uma mensagem de erro
+                echo "\nErro ao executar a consulta.\n";
+                return false;
             }
-
-            return $retorno;
         } catch (PDOException $exc) {
+            // Captura exceções de PDO e exibe a mensagem de erro
             echo $exc->getMessage();
+            return false;
         }
     }
-
+    
     //PesquisarUsuarioPorId
     public function pesquisarUsuarioPorId($idUsu)
     {

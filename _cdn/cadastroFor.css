@@ -1,0 +1,189 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    circle,
+    rgba(123, 104, 238, 1) 0%,
+    rgba(123, 104, 238, 0.2) 35%,
+    rgba(123, 104, 238, 1) 100%
+  );
+}
+.container {
+  width: 90%;
+  max-width: 1300px;
+  height: 70vh;
+  display: flex;
+  margin: 0 auto;
+  box-shadow: 4px 6px 16px 1px rgba(0, 0, 0, 0.34);
+  border-radius: 8px;
+}
+
+.imagem {
+  width: 50%;
+  height: 100%;
+  border-radius: 8px 0 0 8px; /* Adiciona borda arredondada apenas no lado esquerdo */
+  overflow: hidden; /* Para garantir que a imagem não se estenda além do contêiner */
+}
+
+.imagem img {
+  width: 80%; /* Ajusta a largura da imagem */
+  height: 80%; /* Ajusta a altura da imagem */
+  /* object-fit: cover; Redimensiona a imagem mantendo a proporção */
+}
+
+.form {
+  width: 50%;
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-size: 22%;
+  border-radius: 0 8px 8px 0; /* Adiciona borda arredondada apenas no lado direito */
+  background-position: 10px 3px;
+  background-color: #f8fbfd;
+  padding: 1rem;
+}
+
+/* Restante do CSS permanece o mesmo */
+
+.form .form-align {
+  display: flex;
+  flex-direction: column; /* Alterado para empilhar os elementos */
+  gap: 10px;
+}
+
+.form .form-name {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 600;
+  max-width: 45%;
+  min-width: 45%;
+}
+
+div header {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form header h1 {
+  font-size: 2.2em;
+  text-align: center;
+  margin-left: 120px;
+}
+
+.form header botao {
+  margin-bottom: 50px;
+  width: 14%;
+  height: 30%;
+  flex-basis: 20%;
+}
+
+div .cont {
+  height: 60%;
+  display: flex;
+  flex-direction: column; /* Alterado para empilhar os elementos */
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+main input {
+  margin-top: 1px;
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid #5f06a34f;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
+  outline-color: #5f06a34f;
+  height: 50px;
+}
+
+.botao {
+  width: 100%;
+  height: 15%;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao input {
+  width: 80%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+header input,
+.botao input {
+  background-color: #6006a3e3;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.botao input:hover {
+  background-color: #310553e3;
+}
+
+header input:hover {
+  background-color: #310553e3;
+}
+
+input::placeholder {
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Altera para empilhamento em telas menores */
+  }
+
+  .imagem,
+  .form {
+    width: 100%; /* Define a largura total em telas menores */
+  }
+
+  .form header h1 {
+    margin-left: 0; /* Remove a margem à esquerda em telas menores */
+    text-align: center; /* Alinha o texto ao centro */
+  }
+
+  .form header button {
+    width: 100%; /* Define a largura total dos botões em telas menores */
+    margin: 0 auto; /* Centraliza os botões */
+  }
+
+  div .cont {
+    padding: 0 20px; /* Reduz o preenchimento para telas menores */
+  }
+}
+
+.login a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid #5f06a34f;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
+  outline-color: #5f06a34f;
+  height: 30px;
+  background-color: #6006a3e3; /* Adicionando cor de fundo */
+  color: aliceblue; /* Alterando a cor do texto */
+  cursor: pointer; /* Alterando o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease; /* Adicionando uma transição suave */
+  margin-bottom: 300px;
+  width: 30%;
+}
+
+.login a:hover {
+  background-color: #310553e3; /* Alterando a cor de fundo ao passar o mouse */
+}

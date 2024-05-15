@@ -1,3 +1,17 @@
+<!-- <?php
+require_once '../Model/DTO/usuarioDTO.php';
+require_once '../Model/DAO/usuarioDAO.php';
+require_once '../Control/listarUsuariosController.php';
+
+$idUsu = strip_tags($_POST["idUsu"]);
+
+$usuarioDAO = new UsuarioDAO();
+$retorno = $usuarioDAO->pesquisarUsuarioPorId($idUsu);
+echo "ID do Usuário: " . $idUsu;
+var_dump($retorno);
+
+
+?>  -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -40,7 +54,7 @@
             </div>
           <form name="alterarUsu" id="alterarUsu" action="../Control/alterarUsuarioController.php" method="POST">
         
-            <input type="hidden" name="idUsu" value="<?php echo $retorno["idUsu"]; ?>">
+          <input type="hidden" name="idUsu" value="<?php echo $retorno["idUsu"]; ?>">
             <table>
               <tr>
                 <th>Nome: <input type="text" name="nomeUsu" id="nomeUsu"
@@ -51,7 +65,8 @@
                 <th>Perfil: <input type="text" name="perfilUsu" id="perfilUsu"
                     value="<?php echo $retorno["perfilUsu"]; ?>"></th>
                 <th>Situação: <input type="text" name="situacaoUsu" id="situacaoUsu"
-                    value="<?php echo $retorno["perfilUsu"]; ?>"></th> 
+                    value="<?php echo $retorno["situacaoUsu"]; ?>"></th> 
+                    
               </tr>
             </table>  
             <button type="submit" onclick="simpleAlert()">Salvar Alteração</button>
@@ -67,5 +82,4 @@
 </main>
 
 </body>
-
 </html>

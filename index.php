@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -35,13 +38,20 @@
           title="Bem vindo(a) ao E-commerce Meraki"></a>
       <nav class="main_header_content_menu">
         <ul>
-        
-          <li><a href="#categorias">Categorias</a></li>
-          <li><a href="#reviews">Reviews</a></li>
+        <ul>
+        <li><a href="#categorias">Categorias</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <?php if (isset($_SESSION['nomeUsu'])): ?>
+          <li><span>Olá, <?php echo htmlspecialchars($_SESSION['nomeUsu']); ?>!</span></li>
+          <li><a href="View/logout.php">Logout</a></li>
+          <?php if ($_SESSION['perfilUsu'] == "Administrador"): ?>
+            <li><a href="View/opcao.php">Painel do Sistema</a></li>
+          <?php endif; ?>
+        <?php else: ?>
           <li><a href="View/cadastrarUsu.php">Cadastre-se</a></li>
           <li><a href="View/loginUsu.php">Login</a></li>
-          <li><a href="#" class="icon-cart"></a></li>
-        </ul>
+        <?php endif; ?>
+        <li><a href="View/carrinho.php" class="icon-cart"></a></li>
       </nav>
     </div>
   </header>
@@ -101,9 +111,9 @@
         <p>Aqui você encontra as peças de moda essenciais para realçar seu estilo em sua jornada.</p>
       </header>
 <div class="main_content_cart">
-        <article>
+        <article id="produto1">
         <a href="#">
-          <img src="img/post8.jpg" width="200" height="320" alt="Imagem Blusa" title="Blusa">
+          <img src="img/post8.jpg"  width="200" height="320" alt="Imagem Blusa" title="Blusa">
       </a>
       <p><a href="" class="category">Blusa</a></p>
       
@@ -112,9 +122,21 @@
         </a></h2>
       <p class="price">R$ 29,99</p>
       <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
+            <button class="icon-cart" onclick="addToCart('produto1','Blusa Cor Creme', 29.99)"></button>
+            <div class="main_content_button_buy">
+                <button onclick="buyNow('produto1','Blusa Cor Creme', 29.99)">Comprar Agora</button>
+            </div>
+            <script>
+        function addToCart(productName, price, category) {
+            // Adicione o produto ao carrinho
+            var cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name: productName, price: price, category: category });
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Redirecione para a página do carrinho
+            window.location.href = "View/carrinho.php";
+        }
+    </script>
         </article>
         <article>
         <a href="#">

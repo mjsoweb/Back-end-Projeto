@@ -31,14 +31,13 @@ $usuarioDTO->setSituacaoUsu($situacaoUsu);
 $usuarioDAO = new UsuarioDAO();
 
 $sucesso = $usuarioDAO->salvarUsuario($usuarioDTO);
+if ($sucesso === "E-mail já cadastrado!") {
+  echo json_encode(["success" => false, "message" => $sucesso]);
+} else if ($sucesso) {
+  echo json_encode(["success" => true, "message" => "Usuário cadastrado com sucesso!"]);
+} else {
+  echo json_encode(["success" => false, "message" => "Aconteceu um problema no cadastramento"]);
+}
 
-// var_dump($usuarioDTO);
-
- if ($sucesso) {
-//$msg = "Usuário cadastrado com sucesso!";
- } else {
- $msg = "Aconteceu um problema no cadastramento<br>" . $sucesso;
- }
-// echo "{$msg}";
 
 ?>
