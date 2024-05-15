@@ -15,15 +15,17 @@
 <body>
   <main class="container">
     <div class="imagem">
-      <img src="../img/cad.svg" alt="cadastro" />
+      <img src="../img/cad.svg" alt="voltar" />
       <div class="login">
-        <a href="../View/loginUsu.php">Login</a>
+        <a href="../index.php">Voltar</a>
       </div>
     </div>
 
     <div class="form">
+      
       <header>
         <h1>Cadastre-se</h1>
+        
         <a href="../index.php"></a>
       </header>
       <form id="cadastro">
@@ -69,6 +71,9 @@
         <div class="botao">
           <input type="submit" value="Cadastrar">
         </div>
+        <div class="entrar">
+            <a href="../View/loginUsu.php">Já tem uma conta? Entrar agora</a>
+          </div>
         <input type="hidden" name="perfilUsu" value="Cliente">
         <input type="hidden" name="situacaoUsu" value="Ativo">
       </form>
