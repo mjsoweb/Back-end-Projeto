@@ -48,7 +48,10 @@ body {
 .imagem img {
   width: 80%;
 }
-
+.back {
+  display: flex;
+  flex-direction: row-reverse;
+}
 .form {
   background-image: url(../img/logo.png);
   background-repeat: no-repeat;
@@ -70,7 +73,7 @@ body {
 .form .form-name {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   font-weight: 600;
   max-width: 45%;
   min-width: 45%;
@@ -201,4 +204,12 @@ input::placeholder {
 
 .login a:hover {
   background-color: #310553e3; /* Alterando a cor de fundo ao passar o mouse */
+}
+.entrar a {
+  font-weight: 400;
+  text-decoration: underline;
+  font-size: 0.8em;
+  color: #5f06a3;
+  display: flex;
+  justify-content: center;
 }
