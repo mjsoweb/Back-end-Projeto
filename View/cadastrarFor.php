@@ -16,12 +16,13 @@
   <main class="container">
     <div class="imagem">
       <img src="../img/cadfor.svg" alt="cadastro" />
-      <div class="login">
-        <a href="../index.php">Voltar</a>
-      </div>
+      
     </div>
-
-    <div class="form">
+    <!-- <form action="../Control/fornecedorController.php" method="POST"> -->
+      <div class="form">
+      <div class="back">
+          <a href="../index.php">Voltar</a>
+        </div>
       <header>
         <h1>Cadastrar Fornecedor</h1>
       </header>
