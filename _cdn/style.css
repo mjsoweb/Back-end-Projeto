@@ -45,6 +45,10 @@ html {
   border-radius: 10px;
   color: #d73186;
 }
+.main_header_content_menu span {
+  color: #7958ad;
+  font-size: 1.1em;
+}
 .main_header_content_menu ul li a:hover {
   background-color: #ff015609;
   border: 1px solid #0805062a;

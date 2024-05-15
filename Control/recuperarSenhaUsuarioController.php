@@ -4,8 +4,8 @@ require_once '../View/recuperarSenhaUsuario.php';
 // Verifica se o método de requisição é POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o email foi enviado
-    if (isset($_POST["email"])) {
-        $email = $_POST["email"];
+    if (isset($_POST["emailUsu"])) {
+        $emailUsu = $_POST["emailUsu"];
         
         // Aqui você pode adicionar a lógica para verificar se o e-mail existe no banco de dados
 

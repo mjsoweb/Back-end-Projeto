@@ -15,9 +15,9 @@
 <body>
   <main class="container">
     <div class="imagem">
-      <img src="../img/cad.svg" alt="cadastro" />
+      <img src="../img/cadfor.svg" alt="cadastro" />
       <div class="login">
-        <a href="../View/indexAdm.php">Voltar</a>
+        <a href="../index.php">Voltar</a>
       </div>
     </div>
 

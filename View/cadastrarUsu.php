@@ -20,11 +20,13 @@
         <a href="../View/loginUsu.php">Login</a>
       </div>
     </div>
+
     <div class="form">
       <header>
         <h1>Cadastre-se</h1>
+        <a href="../index.php"></a>
       </header>
-        <form action="../Control/cadastrarUsuarioController.php" method="post" id="cadastro">
+      <form id="cadastro">
         <div class="cont">
           <div class="form-align">
             <div class="form-name">

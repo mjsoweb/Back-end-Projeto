@@ -109,7 +109,7 @@ a:hover {
   gap: 8px;
 }
 
-.botao input {
+.botao button {
   width: 80%;
   height: 30px;
   background-color: #6006a3e3;
@@ -121,7 +121,7 @@ a:hover {
   font-size: 1em;
 }
 
-.botao input:hover {
+.botao button:hover {
   background-color: #310553e3;
 }
 
@@ -132,10 +132,10 @@ a:hover {
   border: 1px solid #5f06a336;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
   outline-color: #5f06a34f;
-  height: 30px;
+  height: 40px;
 }
 
-input::placeholder {
+button::placeholder {
   font-size: 0.9em;
 }
 
@@ -167,7 +167,7 @@ input::placeholder {
   header h1 {
     font-size: 2em;
   }
-  .form-name input {
+  .form-name button {
     height: 40px;
   }
 }

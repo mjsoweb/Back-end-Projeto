@@ -1,0 +1,105 @@
+.list_container > h1 {
+  max-width: 80%;
+  margin: 30px auto;
+  text-align: center;
+  font-size: 2em;
+  color: #000;
+  font-weight: 700;
+}
+
+form {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form p {
+  margin-bottom: 7px;
+}
+
+table {
+  width: 90%;
+  background: radial-gradient(
+    circle,
+    rgba(202, 89, 149, 0.2) 0%,
+    rgba(202, 89, 149, 0.25) 10%,
+    rgba(202, 89, 149, 0.3) 20%,
+    rgba(202, 89, 149, 0.35) 30%,
+    rgba(202, 89, 149, 0.4) 40%,
+    rgba(202, 89, 149, 0.45) 50%,
+    rgba(202, 89, 149, 0.5) 60%,
+    rgba(202, 89, 149, 0.55) 70%,
+    rgba(202, 89, 149, 0.6) 80%,
+    rgba(202, 89, 149, 0.65) 90%,
+    rgba(202, 89, 149, 0.7) 100%
+  );
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 30px auto;
+}
+
+th {
+  padding: 0 6px;
+}
+
+input {
+  margin-top: 5px;
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid #5f06a34f;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
+  outline-color: #5f06a34f;
+}
+
+a .delete-user {
+  cursor: pointer;
+  color: #fff;
+  margin: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .list_container > h1 {
+    font-size: 1.5em;
+    margin: 20px auto;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th {
+    padding: 5px;
+  }
+}
+p {
+  color: rgb(62, 2, 117);
+  padding: 10px;
+}
+button {
+  background-color: blueviolet;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+  margin-left: 1200 px; /* Adicione espaço entre os botões */
+  width: 50px;
+
+  margin-top: 10px; /* Adicione margem superior para separação */
+}
+button:hover {
+  opacity: 1;
+}
+a {
+  cursor: pointer;
+  color: #fff;
+}

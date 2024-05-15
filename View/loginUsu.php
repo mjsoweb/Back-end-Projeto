@@ -20,9 +20,9 @@
 
     </div>
     <form action="../Control/loginController.php" method="POST">
-    <div class="back">
-        <a href="../index.php">Voltar</a>
-      </div>
+      <div class="back">
+          <a href="../index.php">Voltar</a>
+        </div>
       <div class="form">
         <header>
           <h1>Entrar</h1>

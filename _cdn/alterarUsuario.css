@@ -1,17 +1,25 @@
-.list_container {
-  max-width: 70%;
+.list_container > h1 {
+  max-width: 80%;
   margin: 30px auto;
-}
-h1 {
   text-align: center;
-  margin-bottom: 20px;
   font-size: 2em;
   color: #000;
   font-weight: 700;
-  text-align: center;
 }
+
+form {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form p {
+margin-bottom: 7px;
+}
+
 table {
-  max-width: 1300px;
   width: 90%;
   background: radial-gradient(
     circle,
@@ -31,43 +39,49 @@ table {
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin: 70px;
+  margin: 20px auto;
 }
+
+th {
+  padding: 0 6px;
+}
+
 button {
-  display: flex;
-  justify-content: right;
   background-color: blueviolet;
   border: none;
-  padding: 5px 15px;
+  padding: 10px 20px;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
   opacity: 0.8;
+  margin: 10px;
 }
+
 button:hover {
   opacity: 1;
 }
+
 a {
   cursor: pointer;
   color: #fff;
+  margin: 10px;
 }
-form button {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 70px;
-}
-#nomeUsu,
-#sobrenomeUsu,
-#emailUsu,
-#perfilUsu,
-#situacaoUsu,
-#telefoneUsu {
-  margin-top: 1px;
-  border-radius: 8px;
-  padding: 5px 8px;
-  border: 1px solid #5f06a34f;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
-  outline-color: #5f06a34f;
-  height: 35px;
+
+@media screen and (max-width: 768px) {
+  .list_container > h1 {
+    font-size: 1.5em;
+    margin: 20px auto;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th {
+    padding: 5px;
+  }
 }

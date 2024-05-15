@@ -39,24 +39,24 @@
       </div>
         <div class="cont">
           <div class="form-align">
-            <div class="form-name">
+            <div class="form-align">
               <label for="nome">Nome</label>
               <input id="nomeUsu" name="nomeUsu" type="text" placeholder="Digite seu nome" required />
             </div>
 
-            <div class="form-name">
+            <div class="form-align">
               <label for="sobrenome">Sobrenome</label>
               <input id="sobrenomeUsu" name="sobrenomeUsu" type="text" placeholder="Digite seu sobrenome" required />
             </div>
           </div>
 
           <div class="form-align">
-            <div class="form-name">
+            <div class="form-align">
               <label for="email">E-mail</label>
               <input id="emailUsu" type="email" name="emailUsu" placeholder="Digite seu e-mail" required />
-            </div>
+            </div> 
 
-            <div class="form-name">
+            <div class="form-align">
               <label for="telefoneUsu"> Celular</label>
               <input id="telefoneUsu" name="telefoneUsu" type="tel" placeholder="(xx) xxxxx-xxxx" required
                 maxlength="11" />
@@ -64,37 +64,37 @@
           </div>
 
           <div class="form-align">
-            <div class="form-name">
+            <div class="form-align">
               <label for="cepUsu">CEP</label>
               <input id="cepUsu" type="text" name="cepUsu" placeholder="Digite seu CEP" required maxlength="8" />
             </div>
 
-            <div class="form-name">
+            <div class="form-align">
               <label for="enderecoUsu">Endereço</label>
               <input id="enderecoUsu" name="enderecoUsu" type="text"
                 placeholder="Digite seu endereço" required />
             </div>
-            <div class="form-name">
+            <div class="form-align">
               <label for="numeroUsu">Número</label>
               <input id="numeroUsu" name="numeroUsu" type="number"
                 placeholder="Digite o número" required />
             </div>
-            <div class="form-name">
+            <div class="form-align">
               <label for="complementoUsu">Complemento</label>
               <input id="complementoUsu" name="complementoUsu" type="text"
                 placeholder="Digite o complemento" />
             </div>
-            <div class="form-name">
+            <div class="form-align">
               <label for="bairroUsu">Bairro</label>
               <input id="bairroUsu" name="numeroUsubairroUsu" type="text"
                 placeholder="Digite o bairro" required />
             </div>
-            <div class="form-name">
+            <div class="form-align">
               <label for="cidadeUsu">Cidade</label>
               <input id="cidadeUsu" name="cidadeUsu" type="text"
                 placeholder="Digite a cidade" required />
             </div>
-            <div class="form-name">
+            <div class="form-align">
             <label for="ufUsu">UF</label>
     <select id="ufUsu" name="ufUsu" required>
         <option value="" selected disabled>Selecione a UF</option>
@@ -139,49 +139,7 @@
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-  document.getElementById("cadastro").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(this);
-
-    fetch("../Control/cadastrarUsuarioController.php", {
-      method: "POST",
-      body: formData
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json(); 
-      })
-      .then(data => {
-        if (data.success) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Sucesso!',
-            text: data.message,
-          });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Erro!',
-            text: data.message,
-          });
-        }
-      })
-      .catch(error => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Erro!',
-          text: 'Ocorreu um erro ao processar o cadastro. Tente novamente mais tarde.',
-        });
-        console.error('Error:', error);
-      });
-  });
-</script>
-
+  
 </body>
 
 </html>

@@ -100,14 +100,14 @@
           <article class="product">
             <header>
               <a class="remove">
-                <img src="../img/c2.jpg" alt="Calça" />
+                <img src="../img/saia.jpg" alt="Calça" />
 
                 <h3>Remover Produto</h3>
               </a>
             </header>
 
             <div class="content">
-              <h1>Calça Jeans</h1>
+              <h1>Saia Xadrez</h1>
 
               <label for="size">Escolha o tamanho:</label>
   <select id="size">
@@ -136,9 +136,9 @@
               <span class="qt">1</span>
               <span class="qt-plus">+</span>
 
-              <h2 class="full-price">R$119,99</h2>
+              <h2 class="full-price">R$49,99</h2>
 
-              <h2 class="price">R$119,99</h2>
+              <h2 class="price">R$49,99</h2>
             </footer>
           </article>
 

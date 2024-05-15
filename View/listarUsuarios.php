@@ -2,11 +2,8 @@
 require_once '../Control/listarUsuariosController.php';
 require_once '../Control/excluirUsuarioController.php';
 require_once '../Control/alterarUsuarioController.php';
-//echo '<pre>';
-//var_dump($todos);
 ?>
 
-</html>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,97 +16,69 @@ require_once '../Control/alterarUsuarioController.php';
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet" />
     <link href="../_cdn/boot.css" rel="stylesheet" />
     <link href="../_cdn/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link href="../_cdn/list_format.css" rel="stylesheet" />
-
+    <link href="../_cdn/listarUsuarios.css" rel="stylesheet" />
     <title>Meraki Moda Feminina</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    $('.delete-user').click(function(e) {
+        e.preventDefault();
+        var userId = $(this).data('id');
+        var tableRow = $(this).closest('tr'); // Encontre a linha da tabela onde o botão foi clicado
+        if(confirm('Tem certeza que deseja excluir este usuário?')) {
+            $.ajax({
+                url: '../Control/excluirUsuarioController.php',
+                type: 'GET',
+                data: { idUsu: userId },
+                success: function(response) {
+                    alert('Usuário excluído com sucesso!');
+                    tableRow.remove(); // Remova a linha da tabela após excluir o usuário
+                },
+                error: function() {
+                    alert('Erro ao excluir usuário.');
+                }
+            });
+        }
+    });
+});
+
+    </script>
 </head>
 
 <body>
-    <!-- INICIO CABEÇALHO -->
     <header class="main_header">
         <div class="main_header_content">
-            <a href="cadastrarUsu.php" class="logo">
-                <img width="150" height="150" src="../img/logo.png" alt="Meraki Moda Feminina"
-                    title="Meraki Moda Feminina" />
+            <a href="#" class="logo">
+                <img width="150" height="150" src="../img/logo.png" alt="Meraki Moda Feminina" title="Meraki Moda Feminina" />
             </a>
             <nav class="main_header_content_menu">
                 <ul>
-                    <li>
-                        <a href="../View/indexAdm.php">Voltar</a>
-                    </li>
+                    <li><a href="opcao.php">Voltar</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <!-- FIM CABEÇALHO -->
+
     <div class="list_container">
         <h1>Listagem de Dados</h1>
-       
     </div>
-    <table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($todos as $t): ?>
-        <tr>
-            <td><?php echo $t['nomeUsu']; ?></td>
-            <td><?php echo $t['sobrenomeUsu']; ?></td>
-            <td><?php echo $t['emailUsu']; ?></td>
-            <td><?php echo $t['telefoneUsu']; ?></td>
-            <td>
-                <!-- Link para editar o usuário -->
-               
-                <button onclick="confirmEdit(<?php echo $t['idUsu']; ?>)">&#9998; Editar</button>
-<button onclick="confirmDelete(<?php echo $t['idUsu']; ?>)">&#10008; Excluir</button>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    function confirmEdit(idUsu) {
-        Swal.fire({
-            title: "Editar Usuário",
-            text: "Deseja realmente editar este usuário?",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonText: "Sim",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "alterarUsuario.php?idUsu=" + idUsu;
-            }
-        });
-    }
+    <?php foreach ($todos as $t) : ?>
+        <table>
+            <tr>
+                <th><p>Nome:</p> <?= $t['nomeUsu']; ?></th>
+                <th><p>Sobrenome:</p><?= $t['sobrenomeUsu']; ?></th>
+                <th><p>Email:</p><?= $t['emailUsu']; ?></th>
+                <th><p>Celular:</p> <?= $t['telefoneUsu']; ?></th>
+                <th><p>Perfil:</p> <?= $t['perfilUsu']; ?></th>
+                <th><p>Situação:</p> <?= $t['situacaoUsu']; ?></th>
+                
+                <th><button onclick="window.location.href = 'alterarUsuario.php?idUsu=<?= $t['idUsu']; ?>';">&#9998;</button></th></th>
+                   <th><button><a href="excluirUsuarioController.php" class="delete-user" data-id="<?= $t['idUsu']; ?>">&#10008;</a></button></th>
+            </tr>
+        </table>
+        
+    <?php endforeach; ?>
 
-    function confirmDelete(idUsu) {
-        Swal.fire({
-            title: "Excluir Usuário",
-            text: "Deseja realmente excluir este usuário?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Sim, Excluir"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "../Control/excluirUsuarioController.php?idUsu=" + idUsu;
-            }
-        });
-    }
-</script>
-
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
-
-    
 </body>
+</html>
