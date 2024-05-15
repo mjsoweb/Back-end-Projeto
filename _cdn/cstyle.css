@@ -51,6 +51,11 @@ body {
 .back {
   display: flex;
   flex-direction: row-reverse;
+
+  font-weight: 400;
+  text-decoration: underline;
+  font-size: 0.8em;
+  color: #5f06a3;
 }
 .form {
   background-image: url(../img/logo.png);
@@ -91,7 +96,7 @@ div header {
 .form header h1 {
   font-size: 2.7em;
   text-align: center;
-  margin-left: 120px;
+  margin-left: 50px;
 }
 
 .form header botao {
@@ -134,7 +139,7 @@ main input {
 .botao input {
   width: 80%;
   height: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 header input,
@@ -212,4 +217,5 @@ input::placeholder {
   color: #5f06a3;
   display: flex;
   justify-content: center;
+  margin-top: 0px 0px;
 }
