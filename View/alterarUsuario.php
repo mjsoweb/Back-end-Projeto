@@ -15,8 +15,8 @@ require_once '../Control/listarUsuariosController.php';
   <link href="../_cdn/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <link href="../_cdn/alterarUsuario.css" rel="stylesheet" />
+ 
   <title>Alteração de Cadastro</title>
-  <link rel="stylesheet" href="../_cdn/alterar.css">
 </head>
 
 <body>
