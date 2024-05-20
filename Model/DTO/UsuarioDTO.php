@@ -11,7 +11,7 @@ class UsuarioDTO
     private $perfilUsu;
     private $situacaoUsu;
     private $sobrenomeUsu;
-
+    
 
     public function setSituacaoUsu($situacaoUsu)
     {
@@ -100,5 +100,8 @@ class UsuarioDTO
     {
         return $this->idUsu;
     }
+
+    
 }
+    
 ?>

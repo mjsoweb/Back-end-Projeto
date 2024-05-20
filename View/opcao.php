@@ -49,10 +49,20 @@
           </article>
 
           <article>
-            <h2>Listar e Alterar Dados</h2>
+            <h2>Listar e Alterar Dados Usuário</h2>
             <header>
               <p>
                 <a href="../View/listarUsuarios.php">
+                  <img src="../img/listar.svg" alt="Listar" title="Listar" width="400" height="300" />
+                </a>
+              </p>
+            </header>
+          </article>
+          <article>
+            <h2>Listar e Alterar Dados Fornecedor</h2>
+            <header>
+              <p>
+                <a href="../View/listarFor.php">
                   <img src="../img/listar.svg" alt="Listar" title="Listar" width="400" height="300" />
                 </a>
               </p>

@@ -1,28 +1,29 @@
-
 <?php
-require_once '../View/recuperarSenhaUsuario.php';
-// Verifica se o método de requisição é POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verifica se o email foi enviado
-    if (isset($_POST["emailUsu"])) {
-        $emailUsu = $_POST["emailUsu"];
-        
-        // Aqui você pode adicionar a lógica para verificar se o e-mail existe no banco de dados
 
-        // Gere um token para o usuário (pode ser um hash aleatório)
-        $token = md5(uniqid(rand(), true));
+require_once '../Model/DAO/UsuarioDAO.php';
+// require_once 'databaseConnection.php';
 
-        // Armazene o token e o e-mail em algum lugar seguro, como no banco de dados
+$emailUsu = strip_tags($_POST["emailUsu"]);
 
-        // Agora você pode enviar um e-mail para o usuário com um link contendo o token para redefinir a senha
-        $assunto = "Recuperação de Senha";
-        $mensagem = "Olá,\n\nPara recuperar sua senha, clique no link a seguir:\n\n";
-        $mensagem .= "http://seusite.com/resetar_senha.php?token=" . $token;
-        $mensagem .= "\n\nSe você não solicitou a recuperação da senha, ignore este e-mail.";
-        // Você também pode adicionar o código para enviar o e-mail aqui
+$usuarioDAO = new UsuarioDAO();
 
-        // Redirecionar o usuário para uma página de confirmação
-        header("Location: ../View/recuperarSenhaUsuario.php");
-        exit();
-    }
+if (empty($emailUsu)) {
+    echo json_encode(["success" => false, "message" => "Email não fornecido"]);
+    exit;
 }
+
+$usuarioDTO = $usuarioDAO->buscarUsuarioPorEmail($emailUsu);
+
+if ($usuarioDTO) {
+    // Aqui você pode adicionar o código para enviar o email de recuperação de senha
+    $message = "Um email foi enviado para $emailUsu com instruções para recuperar sua senha.";
+    echo json_encode(["success" => true, "message" => $message]);
+
+    // Exemplo de envio de email (substitua pela sua função real)
+    // mail($emailUsu, "Recuperação de Senha", "Clique no link para redefinir sua senha.");
+
+} else {
+    echo json_encode(["success" => false, "message" => "Este email não está cadastrado."]);
+}
+
+?>

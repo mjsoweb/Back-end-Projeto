@@ -23,7 +23,7 @@ class UsuarioDAO
 
             return $count > 0;
         } catch (PDOException $exc) {
-            echo $exc->getMessege();
+            echo $exc->getMessage();
         }
     }
 
@@ -174,4 +174,23 @@ class UsuarioDAO
             echo $exc->getMessage();
         }
     }
+    //pesquisar usuario por email para recuperar senha
+    
+
+    public function buscarUsuarioPorEmail($emailUsu)
+    {
+        try {
+            $sql = "SELECT * FROM usuario WHERE emailUsu = {$emailUsu}; ";
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute();
+            $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $retorno;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
+
 }
+

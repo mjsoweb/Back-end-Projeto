@@ -205,12 +205,14 @@ html {
 }
 .page-link {
   padding: 5px 10px;
-  background-color: #d7318728;
+  background-color: aliceblue;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
+  color: #d73186;
+  font-weight: 600;
 }
 .page-link:hover {
-  background-color: #ddd;
+  background-color: #e398e8;
 }
 .page-link:focus {
   box-shadow: none;

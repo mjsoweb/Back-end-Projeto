@@ -31,15 +31,12 @@ session_start();
 
 <body>
   <!--DOBRA CABEÇALHO-->
-
   <header class="main_header">
     <div class="main_header_content">
       <a href="#" class="logo">
         <img src="img/logo.png" alt="Bem vindo(a) ao E-commerce Meraki" width="150px"
           title="Bem vindo(a) ao E-commerce Meraki"></a>
       <nav class="main_header_content_menu">
-
-        
       <ul>
         <li><a href="#categorias">Categorias</a></li>
         <li><a href="#reviews">Reviews</a></li>
@@ -59,8 +56,8 @@ session_start();
     </div>
   </header>
   <!--FIM DOBRA CABEÇALHO-->
-  <!--DOBRA PALCO PRINCIPAL-->
 
+  <!--DOBRA PALCO PRINCIPAL-->
   <!--1ª DOBRA-->
   <main>
     <div class="main_cta">

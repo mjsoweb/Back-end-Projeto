@@ -13,7 +13,7 @@
     <div class="imagem">
         <img src="../img/login.svg" alt="login"  height="600px"/>
     </div>
-    <form id="recuperarSenhaForm" action="../Control/recuperarSenhaUsuarioController.php" method="POST">
+    <form id="recuperarSenhaForm" method="POST">
         <div class="back">
             <a href="../View/loginUsu.php">Voltar</a>
         </div>
@@ -27,32 +27,52 @@
                     <input type="email" id="emailUsu" name="emailUsu" required>
                 </div>
                 <div class="botao">
-                    <!-- Modificado de "submit" para "button" -->
-                    <button type="button" onclick="enviarFormulario()">Enviar</button>
+                    <button type="button" onclick="verificarEmail()">Enviar</button>
                     <a href="../View/cadastrarUsu.php">É novo aqui? Cadastre-se agora</a>
                 </div>
             </div>
         </div>
     </form>
 </main>
-
-<script>
-    function enviarFormulario() {
-        // Você pode adicionar aqui qualquer validação adicional antes do envio do formulário
-        
-        // Exibir o SweetAlert2
+ <!-- <script>
+function verificarEmail() {
+    const email = document.getElementById('emailUsu').value;
+    fetch('../Control/recuperarSenhaUsuarioController.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `emailUsu=${encodeURIComponent(email)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.exists) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Email enviado!',
+                text: 'Um e-mail com instruções para recuperar sua senha foi enviado para o seu endereço de e-mail.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('recuperarSenhaForm').submit();
+                }
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro!',
+                text: 'Este email não está cadastrado.',
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
         Swal.fire({
-            icon: 'success',
-            title: 'Email enviado!',
-            text: 'Um e-mail com instruções para recuperar sua senha foi enviado para o seu endereço de e-mail.'
-        }).then((result) => {
-            // Após o usuário clicar em "OK", enviar o formulário
-            if (result.isConfirmed) {
-                document.getElementById('recuperarSenhaForm').submit();
-            }
+            icon: 'error',
+            title: 'Erro!',
+            text: 'Ocorreu um erro ao verificar o email. Tente novamente mais tarde.',
         });
-    }
-</script>
-
+    });
+}
+</script>  -->
 </body>
 </html>

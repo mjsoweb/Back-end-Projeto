@@ -1,148 +1,211 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../_cdn/boot.css" rel="stylesheet" />
+  <link href="../_cdn/style.css" rel="stylesheet" />
     <title>Finalizar Compra</title>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../_cdn/cboot.css" />
-  <link rel="stylesheet" href="../_cdn/finalizar.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-  <title>Finalizar Compra</title>
-</head>
-
-<body>
-  <main class="container">
-    <!-- <div class="imagem">
-      <img src="../img/cad.svg" alt="cadastro" />
-      <div class="login">
-        <a href="../View/loginUsu.php">Login</a>
+    <link rel="stylesheet" href="../_cdn/finalizar.css" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <script src="../_cdn/finalizar.js" defer></script>
+  </head>
+  <body id="checkout-page">
+    <!-- INICIO CABEÇALHO -->
+    <header class="main_header">
+      <div class="main_header_content">
+        <a href="#" class="logo">
+          <img width="150" height="150" src="../img/logo.png" alt="Meraki Moda Feminina" title="Meraki Moda Feminina" />
+        </a>
+        <nav class="main_header_content_menu">
+          <ul>
+            <li>
+              <a href="../index.php">Voltar</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div> -->
-
-    <div class="form">
-      <header>
-        <h1>Finalizar Compra</h1>
-      </header>
-      <form  action="../Control/finalizarController.php" id="finalizar">
-      <div class="back">
-        <a href="../View/carrinho.php">Voltar</a>
+    </header>
+    <!-- FIM CABEÇALHO -->  
+    <div id="fade" class="hide">
+      <div id="loader" class="spinner-border text-info hide" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
-        <div class="cont">
-          <div class="form-align">
-            <div class="form-align">
-              <label for="nome">Nome</label>
-              <input id="nomeUsu" name="nomeUsu" type="text" placeholder="Digite seu nome" required />
-            </div>
-
-            <div class="form-align">
-              <label for="sobrenome">Sobrenome</label>
-              <input id="sobrenomeUsu" name="sobrenomeUsu" type="text" placeholder="Digite seu sobrenome" required />
-            </div>
-          </div>
-
-          <div class="form-align">
-            <div class="form-align">
-              <label for="email">E-mail</label>
-              <input id="emailUsu" type="email" name="emailUsu" placeholder="Digite seu e-mail" required />
-            </div> 
-
-            <div class="form-align">
-              <label for="telefoneUsu"> Celular</label>
-              <input id="telefoneUsu" name="telefoneUsu" type="tel" placeholder="(xx) xxxxx-xxxx" required
-                maxlength="11" />
-            </div>
-          </div>
-
-          <div class="form-align">
-            <div class="form-align">
-              <label for="cepUsu">CEP</label>
-              <input id="cepUsu" type="text" name="cepUsu" placeholder="Digite seu CEP" required maxlength="8" />
-            </div>
-
-            <div class="form-align">
-              <label for="enderecoUsu">Endereço</label>
-              <input id="enderecoUsu" name="enderecoUsu" type="text"
-                placeholder="Digite seu endereço" required />
-            </div>
-            <div class="form-align">
-              <label for="numeroUsu">Número</label>
-              <input id="numeroUsu" name="numeroUsu" type="number"
-                placeholder="Digite o número" required />
-            </div>
-            <div class="form-align">
-              <label for="complementoUsu">Complemento</label>
-              <input id="complementoUsu" name="complementoUsu" type="text"
-                placeholder="Digite o complemento" />
-            </div>
-            <div class="form-align">
-              <label for="bairroUsu">Bairro</label>
-              <input id="bairroUsu" name="numeroUsubairroUsu" type="text"
-                placeholder="Digite o bairro" required />
-            </div>
-            <div class="form-align">
-              <label for="cidadeUsu">Cidade</label>
-              <input id="cidadeUsu" name="cidadeUsu" type="text"
-                placeholder="Digite a cidade" required />
-            </div>
-            <div class="form-align">
-            <label for="ufUsu">UF</label>
-    <select id="ufUsu" name="ufUsu" required>
-        <option value="" selected disabled>Selecione a UF</option>
-        <option value="AC">Acre</option>
-        <option value="AL">Alagoas</option>
-        <option value="AP">Amapá</option>
-        <option value="AM">Amazonas</option>
-        <option value="BA">Bahia</option>
-        <option value="CE">Ceará</option>
-        <option value="DF">Distrito Federal</option>
-        <option value="ES">Espírito Santo</option>
-        <option value="GO">Goiás</option>
-        <option value="MA">Maranhão</option>
-        <option value="MT">Mato Grosso</option>
-        <option value="MS">Mato Grosso do Sul</option>
-        <option value="MG">Minas Gerais</option>
-        <option value="PA">Pará</option>
-        <option value="PB">Paraíba</option>
-        <option value="PR">Paraná</option>
-        <option value="PE">Pernambuco</option>
-        <option value="PI">Piauí</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="RN">Rio Grande do Norte</option>
-        <option value="RS">Rio Grande do Sul</option>
-        <option value="RO">Rondônia</option>
-        <option value="RR">Roraima</option>
-        <option value="SC">Santa Catarina</option>
-        <option value="SP">São Paulo</option>
-        <option value="SE">Sergipe</option>
-        <option value="TO">Tocantins</option>
-    </select>
-            </div>
+      <div id="message" class="hide">
+        <div class="alert alert-light" role="alert">
+          <h4>Mensagem:</h4>
+          <p></p>
+          <button id="close-message" type="button" class="btn btn-secondary">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="order-form-container" class="container p-6 my-md-4 px-md-0">
+      <div id="steps" class="mb-md-3 pb-md-3">
+        <div class="line"></div>
+        <div class="step">
+          <i class="bi bi-person active"></i>
+          <p class="d-none d-md-block">Criação de conta</p>
+        </div>
+        <div class="step">
+          <i class="bi bi-geo-alt active"></i>
+          <p class="d-none d-md-block">Endereço</p>
+        </div>
+        <div class="step">
+          <i class="bi bi-credit-card"></i>
+          <p class="d-none d-md-block">Pagamento</p>
+        </div>
+      </div>
+      <div id="form-header">
+        <h2>Cadastre o seu endereço</h2>
+        <p>Preencha os campos para podermos enviar seus produtos</p>
+      </div>
+      <form id="address-form">
+        <div class="row mb-3">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="cep"
+              name="cep"
+              placeholder="Digite o seu CEP"
+              maxlength="8"
+              minlength="8"
+              required
+            />
+            <label for="cep">Digite o seu CEP</label>
           </div>
         </div>
-        <div class="botao">
-        <input id="prosseguir" type="submit" value="Prosseguir">
-
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="address"
+              name="address"
+              placeholder="Rua"
+              disabled
+              required
+              data-input
+            />
+            <label for="address">Rua</label>
+          </div>
+          <div class="col-12 col-sm-6 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="number"
+              name="number"
+              placeholder="Digite o número da residência"
+              disabled
+              required
+              data-input
+            />
+            <label for="number">Digite o número da residência</label>
+          </div>
         </div>
-        <input type="hidden" name="perfilUsu" value="Cliente">
-        <input type="hidden" name="situacaoUsu" value="Ativo">
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="complement"
+              name="complement"
+              placeholder="Digite o complemento"
+              disabled
+              data-input
+            />
+            <label for="complement">Digite o complemento</label>
+          </div>
+          <div class="col-12 col-sm-6 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="neighborhood"
+              name="neighborhood"
+              placeholder="Bairro"
+              disabled
+              required
+              data-input
+            />
+            <label for="neighborhood">Bairro</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="city"
+              name="city"
+              placeholder="Cidade"
+              disabled
+              required
+              data-input
+            />
+            <label for="city">Cidade</label>
+          </div>
+          <div class="col-12 col-sm-6 mb-3">
+            <select
+              class="form-select shadow-none"
+              id="region"
+              disabled
+              required
+              data-input
+            >
+              <option selected>Estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button id="save-btn" type="submit" class="btn btn-primary">
+           Prosseguir
+          </button>
+        </div>
       </form>
     </div>
-  </main>
-
-  
-</body>
-
-</html>
-
-</body>
+  </body>
 </html>

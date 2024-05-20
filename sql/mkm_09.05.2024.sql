@@ -33,18 +33,18 @@ CREATE TABLE IF NOT EXISTS `mkm`.`usuario` (
   `perfilUsu` VARCHAR(15) NULL DEFAULT 'Cliente' COMMENT 'Administrador\nFuncionário\nCliente',
   `situacaoUsu` VARCHAR(15) NULL DEFAULT 'Ativo' COMMENT 'Ativo\nInativo',
   `cepUsu` CHAR(9) NULL,
-  `enderecoUsu` VARCHAR(45) NULL,
+  `ruaUsu` VARCHAR(45) NULL,
   `numeroUsu` VARCHAR(45) NULL,
   `complementoUsu` VARCHAR(45) NULL,
   `bairroUsu` VARCHAR(45) NULL,
   `cidadeUsu` VARCHAR(45) NULL,
-  `ufUsu` CHAR(2) NULL,
+  `ufUsu` VARCHAR(20) NULL,
   PRIMARY KEY (`idUsu`))
 ENGINE = InnoDB;
 
 -- Insere o administrador do sistema
 
-INSERT INTO `usuario` (`idUsu`, `nomeUsu`, `sobrenomeUsu`, `cpfUsu`, `telefoneUsu`, `emailUsu`, `senhaUsu`, `perfilUsu`, `situacaoUsu`, `cepUsu`, `enderecoUsu`, `numeroUsu`, `complementoUsu`, `bairroUsu`, `cidadeUsu`, `ufUsu`) VALUES
+INSERT INTO `usuario` (`idUsu`, `nomeUsu`, `sobrenomeUsu`, `cpfUsu`, `telefoneUsu`, `emailUsu`, `senhaUsu`, `perfilUsu`, `situacaoUsu`, `cepUsu`, `ruaUsu`, `numeroUsu`, `complementoUsu`, `bairroUsu`, `cidadeUsu`, `ufUsu`) VALUES
 (13, 'Admistrador', 'Do Sistema', NULL, '61998875481', 'adm@gmail.com', '202cb962ac59075b964b07152d234b70', 'Administrador', 'Ativo', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --

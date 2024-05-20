@@ -58,7 +58,7 @@
           <div class="form-align">
             <div class="form-name">
               <label for="senhaUsu">Senha</label>
-              <input id="senhaUsu" type="password" name="senhaUsu" placeholder="Digite sua senha" required />
+              <input id="senhaUsu" type="password" name="senhaUsu" placeholder="Digite sua senha" minlength="8" required />
             </div>
 
             <div class="form-name">
