@@ -1,9 +1,6 @@
 <?php
 require_once '../Control/listarForController.php';
-require_once '../Control/excluirForController.php';
-require_once '../Control/alterarFornecedorController.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,27 +18,26 @@ require_once '../Control/alterarFornecedorController.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
-    $('.delete-user').click(function(e) {
-        e.preventDefault();
-        var userId = $(this).data('id');
-        var tableRow = $(this).closest('tr'); // Encontre a linha da tabela onde o botão foi clicado
-        if(confirm('Tem certeza que deseja excluir este usuário?')) {
-            $.ajax({
-                url: '../Control/excluirForController.php',
-                type: 'GET',
-                data: { idUsu: userId },
-                success: function(response) {
-                    alert('Usuário excluído com sucesso!');
-                    tableRow.remove(); // Remova a linha da tabela após excluir o usuário
-                },
-                error: function() {
-                    alert('Erro ao excluir usuário.');
-                }
-            });
-        }
+        $('.delete-user').click(function(e) {
+            e.preventDefault();
+            var userId = $(this).data('id');
+            var tableRow = $(this).closest('tr'); // Encontre a linha da tabela onde o botão foi clicado
+            if(confirm('Tem certeza que deseja excluir este usuário?')) {
+                $.ajax({
+                    url: '../Control/excluirForController.php',
+                    type: 'GET',
+                    data: { idFor: userId },
+                    success: function(response) {
+                        alert('Usuário excluído com sucesso!');
+                        tableRow.remove(); // Remova a linha da tabela após excluir o usuário
+                    },
+                    error: function() {
+                        alert('Erro ao excluir usuário.');
+                    }
+                });
+            }
+        });
     });
-});
-
     </script>
 </head>
 
@@ -63,21 +59,24 @@ require_once '../Control/alterarFornecedorController.php';
         <h1>Listagem de Dados</h1>
     </div>
 
-    <?php foreach ($todos as $t) : ?>
-        <table>
-            <tr>
-                <th><p>Nome:</p> <?= $t['nomeFor']; ?></th>
-                <th><p>Celular:</p> <?= $t['telefoneFor']; ?></th>
-                <th><p>Email:</p><?= $t['emailFor']; ?></th>
-
-  
-                
-                <th><button onclick="window.location.href = 'alterarFornecedor.php?idFor=<?= $t['idFor']; ?>';">&#9998;</button></th></th>
-                   <th><button><a href="excluirForController.php" class="delete-user" data-id="<?= $t['idFor']; ?>">&#10008;</a></button></th>
-            </tr>
-        </table>
-        
-    <?php endforeach; ?>
-
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Celular</th>
+            <th>Email</th>
+            <th>Alterar</th>
+            <th>Excluir</th>
+        </tr>
+        <?php foreach ($todos as $t) : ?>
+        <tr>
+            <td><?= htmlspecialchars($t['nomeFor']); ?></td>
+            <td><?= htmlspecialchars($t['emailFor']); ?></td>
+            <td><?= htmlspecialchars($t['telefoneFor']); ?></td>
+            <td><button onclick="window.location.href = 'alterarFornecedor.php?idFor=<?= $t['idFor']; ?>';">&#9998;</button></td>
+            <td><button><a href="#" class="delete-user" data-id="<?= $t['idFor']; ?>">&#10008;</a></button></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
+
 </html>

@@ -4,7 +4,7 @@ require_once '../Model/DAO/FornecedorDAO.php';
 
 error_reporting(0);
 
-$idUsu = $_GET['idFor'];
+$idFor = $_GET['idFor'];
 
 $fornecedorDAO = new FornecedorDAO();
 

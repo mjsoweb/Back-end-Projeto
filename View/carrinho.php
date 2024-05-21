@@ -61,7 +61,7 @@
           <article class="product">
             <header>
               <a class="remove">
-                <img src="../img/post8.jpg" alt="Blusa" />
+                <img src="../img/blusa3.jpg" alt="Blusa" />
 
                 <h3>Remover Produto</h3>
               </a>
@@ -100,7 +100,7 @@
           <article class="product">
             <header>
               <a class="remove">
-                <img src="../img/saia.jpg" alt="Calça" />
+                <img src="../img/saia1.jpg" alt="Saia" />
 
                 <h3>Remover Produto</h3>
               </a>
@@ -145,7 +145,7 @@
 		  <article class="product">
 			<header>
 			  <a class="remove">
-				<img src="../img/vest2.jpg" alt="Vestido" />
+				<img src="../img/vest1.jpg" alt="Vestido" />
 				<h3>Remover Produto</h3>
 			  </a>
 			</header>

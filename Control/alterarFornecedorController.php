@@ -1,14 +1,14 @@
 <?php
 require_once '../Model/DTO/FornecedorDTO.php';
-require_once '../Model/DAO/UsuarioDAO.php';
+require_once '../Model/DAO/FornecedorDAO.php';
 
   $idFor = strip_tags($_POST["idFor"]);
   $nomeFor = strip_tags($_POST["nomeFor"]);
-  $telefoneFor = strip_tags($_POST["telefoneFor"]);
   $emailFor = strip_tags($_POST["emailFor"]);
+  $telefoneFor = strip_tags($_POST["telefoneFor"]);
  
 
-  $fornecedorDTO = new fornecedorDTO;
+  $fornecedorDTO = new FornecedorDTO;
   $fornecedorDTO->setIdFor($idFor);
   $fornecedorDTO->setNomeFor($nomeFor);
   $fornecedorDTO->setEmailFor($emailFor);
@@ -19,10 +19,12 @@ require_once '../Model/DAO/UsuarioDAO.php';
 
   $sucesso = $fornecedorDAO->alterarFornecedor($fornecedorDTO);
 
-   if ($sucesso) {
-    json_encode(["success" => true, "message" => "Usuário alterado com sucesso!"]);
-  } else {
-    json_encode(["success" => false, "message" => "Aconteceu um problema ao alterar o usuário!"]);
-  }
-// }
-?>
+  if ($sucesso) {
+   json_encode(["success" => true, "message" => "Fornecedor alterado com sucesso!"]);
+ } else {
+   json_encode(["success" => false, "message" => "Aconteceu um problema ao alterar o usuário!"]);
+ }
+  ?>
+
+  
+

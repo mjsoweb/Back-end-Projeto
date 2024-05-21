@@ -13,7 +13,6 @@ $senhaUsu = MD5($_POST["senhaUsu"]);
 $perfilUsu = strip_tags($_POST["perfilUsu"]);
 $situacaoUsu = strip_tags($_POST["situacaoUsu"]);
 
-// echo "{$dtFinal}";
 
 $usuarioDTO = new UsuarioDTO();
 // $usuarioDTO->setIdUsu($idUsu);

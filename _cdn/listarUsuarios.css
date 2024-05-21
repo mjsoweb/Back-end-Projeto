@@ -15,7 +15,8 @@ form {
   justify-content: center;
 }
 
-form p {
+form p,
+td {
   margin-bottom: 7px;
 }
 
@@ -42,7 +43,8 @@ table {
   margin: 30px auto;
 }
 
-th {
+th,
+td {
   padding: 0 6px;
 }
 
@@ -75,11 +77,13 @@ a .delete-user {
     width: 100%;
   }
 
-  th {
+  th,
+  td {
     padding: 5px;
   }
 }
-p {
+p,
+td {
   color: rgb(62, 2, 117);
   padding: 10px;
 }

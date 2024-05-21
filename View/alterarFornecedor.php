@@ -1,5 +1,5 @@
 <?php
-require_once '../Control/listarUsuariosController.php';
+require_once '../Control/listarForController.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,7 +29,7 @@ require_once '../Control/listarUsuariosController.php';
         <nav class="main_header_content_menu">
           <ul>
             <li>
-              <a href="../View/listarUsuarios.php">Voltar</a>
+              <a href="../View/listarFor.php">Voltar</a>
             </li>
           </ul>
         </nav>
@@ -47,22 +47,23 @@ require_once '../Control/listarUsuariosController.php';
         break;
       }}?>
 
-    <form name="alterarFor" id="alterarFor">
-      <input type="hidden" name="idUsu" id="idFor" value="<?php echo $_GET["idFor"]; ?>">
+<form name="alterarFor" id="alterarFor">
+      <input type="hidden" name="idFor" id="idFor" value="<?php echo $_GET["idFor"]; ?>">
       <table>
         <tr>
           <th><p>Nome:</p> <input type="text" name="nomeFor" id="nomeFor" value="<?php echo $usuario_selecionado['nomeFor']; ?>" required></th>
-          <th><p>Celular:</p> <input type="tel" name="telefoneFor" id="telefoneFor" maxlength="11" value="<?php echo $usuario_selecionado["telefoneFor"]; ?>" required></th>
           <th><p>Email:</p> <input type="email" name="emailFor" id="emailFor" value="<?php echo $usuario_selecionado["emailFor"]; ?>" required></th>
-
+          <th><p>Celular:</p> <input type="tel" name="telefoneFor" id="telefoneFor" maxlength="11" value="<?php echo $usuario_selecionado["telefoneFor"]; ?>" required></th>
         </tr>
       </table>
       <button type="submit">Salvar Alteração</button>
     </form>
     
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-     document.getElementById("alterarUsu").addEventListener("submit", function (event) {
+      
+      document.getElementById("alterarFor").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const formData = new FormData(this);
@@ -96,6 +97,8 @@ require_once '../Control/listarUsuariosController.php';
     });
 });
     </script>
+
+  
   </main>
 </body>
 

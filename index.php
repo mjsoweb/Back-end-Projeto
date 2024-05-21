@@ -34,27 +34,29 @@ session_start();
   <header class="main_header">
     <div class="main_header_content">
       <a href="#" class="logo">
-        <img src="img/logo.png" alt="Bem vindo(a) ao E-commerce Meraki" width="150px"
-          title="Bem vindo(a) ao E-commerce Meraki"></a>
+        <img src="img/logo.png" alt="Bem vindo(a) ao E-commerce Meraki" width="150px" title="Bem vindo(a) ao E-commerce Meraki">
+      </a>
       <nav class="main_header_content_menu">
-      <ul>
-        <li><a href="#categorias">Categorias</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <?php if (isset($_SESSION['nomeUsu'])): ?>
-          <li><span>Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['nomeUsu']); ?>!</span></li>
-          <li><a href="View/logout.php">Logout</a></li>
-          <?php if ($_SESSION['perfilUsu'] == "Administrador"): ?>
-            <li><a href="View/opcao.php">Painel ADM</a></li>
+        <ul>
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <?php if (isset($_SESSION['nomeUsu'])): ?>
+            <li><span>Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['nomeUsu']); ?>!</span></li>
+            <li><a href="View/logout.php">Logout</a></li>
+            <?php if ($_SESSION['perfilUsu'] == "Administrador"): ?>
+              <li><a href="View/opcao.php">Painel ADM</a></li>
+            <?php endif; ?>
+            <li><a href="View/carrinho.php" class="icon-cart"></a></li>
+          <?php else: ?>
+            <li><a href="View/cadastrarUsu.php">Cadastre-se</a></li>
+            <li><a href="View/loginUsu.php">Login</a></li>
           <?php endif; ?>
-        <?php else: ?>
-          <li><a href="View/cadastrarUsu.php">Cadastre-se</a></li>
-          <li><a href="View/loginUsu.php">Login</a></li>
-        <?php endif; ?>
-        <li><a href="View/carrinho.php" class="icon-cart"></a></li>
-      </ul>
+        </ul>
       </nav>
     </div>
   </header>
+</body>
+
   <!--FIM DOBRA CABEÇALHO-->
 
   <!--DOBRA PALCO PRINCIPAL-->
@@ -66,7 +68,7 @@ session_start();
           <header>
             <h1>Aqui você encontra tudo o que é necessário<br> para se vestir bem!</h1>
           </header>
-          <p>Elegância em Cada Costura, Feminilidade em Cada Detalhe!</p>
+          <!-- <p>Elegância em Cada Costura, Feminilidade em Cada Detalhe!</p> -->
           <p><a href="#optin" class="btn">Saiba Mais</a></p>
         </div>
       </article>

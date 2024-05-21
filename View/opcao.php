@@ -53,7 +53,7 @@
             <header>
               <p>
                 <a href="../View/listarUsuarios.php">
-                  <img src="../img/listar.svg" alt="Listar" title="Listar" width="400" height="300" />
+                  <img src="../img/listar.svg" alt="Listar" title="Listar Usuários" width="400" height="300" />
                 </a>
               </p>
             </header>
@@ -63,7 +63,7 @@
             <header>
               <p>
                 <a href="../View/listarFor.php">
-                  <img src="../img/listar.svg" alt="Listar" title="Listar" width="400" height="300" />
+                  <img src="../img/alterar.svg" alt="Listar Fornecedores" title="Listar" width="400" height="300" />
                 </a>
               </p>
             </header>

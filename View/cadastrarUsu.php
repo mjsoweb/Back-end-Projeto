@@ -50,15 +50,14 @@
 
             <div class="form-name">
               <label for="telefoneUsu"> Celular</label>
-              <input id="telefoneUsu" name="telefoneUsu" type="tel" placeholder="(xx) xxxxx-xxxx" required
-                maxlength="11" />
+              <input id="telefoneUsu" name="telefoneUsu" type="tel"  maxlength="11" minlength="11" placeholder="(xx) xxxx-xxxx" required />
             </div>
           </div>
 
           <div class="form-align">
             <div class="form-name">
               <label for="senhaUsu">Senha</label>
-              <input id="senhaUsu" type="password" name="senhaUsu" placeholder="Digite sua senha" minlength="8" required />
+              <input id="senhaUsu" type="password" name="senhaUsu" placeholder="Digite sua senha"  required />
             </div>
 
             <div class="form-name">
@@ -133,6 +132,7 @@
           console.error('Error:', error);
         });
     });
+
   </script>
 </body>
 

@@ -24,27 +24,27 @@
       <header>
         <h1>Cadastrar Fornecedor</h1>
       </header>
-      <form action="../Control/fornecedorController.php" method="POST" id="cadastro"> 
+      <form action="../Control/fornecedorController.php" method="POST" id="cadastrar"> 
     
         <div class="cont">
           <div class="form-align">
             <div class="form-name">
               <label for="nome">Nome Completo</label>
               <input id="nomeFor" name="nomeFor" type="text" placeholder="Digite seu nome" required />
-</div>
-
-          <div class="form-align">
-            <div class="form-name">
-              <label for="email">E-mail</label>
-              <input id="emailFor" type="email" name="emailFor" placeholder="Digite seu e-mail" required />
-            </div>
-
-            <div class="form-name">
-              <label for="telefoneFor"> Telefone</label>
-              <input id="telefoneFor" name="telefoneFor" type="tel" placeholder="(xx) xxxxx-xxxx" required
-                maxlength="11" />
-            </div>
-          </div>
+              
+              
+              <div class="form-align">
+                <div class="form-name">
+                  <label for="email">E-mail</label>
+                  <input id="emailFor" type="email" name="emailFor" placeholder="Digite seu e-mail" required maxlength="120"/>
+                </div>
+              </div>
+              <div class="form-name">
+                <label for="telefoneFor">Celular</label>
+                <input id="telefoneFor" name="telefoneFor" type="tel"  maxlength="11" placeholder="(xx) xxxx-xxxx" required
+               />
+              </div>
+              </div>
         <div class="botao">
           <input type="submit" value="Cadastrar">
         </div>
@@ -93,6 +93,22 @@
         console.error('Error:', error);
       });
     });
+
+
+    // // Função para formatar o campo de telefone
+    // document.getElementById('telefoneFor').addEventListener('input', function(event) {
+    //   let phone = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
+    //   if (phone.length > 0) {
+    //     if (phone.length <= 10) {
+    //       phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6, 10);
+    //     } else {
+    //       phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
+    //     }
+    //   }
+    //   event.target.value = phone;
+    // });
+  </script>
+
   </script>
 
 </body>

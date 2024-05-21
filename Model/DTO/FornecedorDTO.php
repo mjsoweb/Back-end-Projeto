@@ -3,8 +3,8 @@ class FornecedorDTO
 {
     private $idFor;
     private $nomeFor;
-    private $telefoneFor;
     private $emailFor;
+    private $telefoneFor;
 
 
   public function setIdFor($idFor)

@@ -12,11 +12,11 @@ class FornecedorDAO{
     }
     // INSERT
 
-    public function emailExists($emailUsu) {
+    public function emailExists($emailFor) {
         try {
-            $sql = "SELECT COUNT(*) FROM fornecedor WHERE emailUsu = ?";
+            $sql = "SELECT COUNT(*) FROM fornecedor WHERE emailFor = ?";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindValue(1, $emailUsu);
+            $stmt->bindValue(1, $emailFor);
             $stmt->execute();
             $count = $stmt->fetchColumn();
 
@@ -36,8 +36,7 @@ class FornecedorDAO{
         }
 
         try {
-            $sql = "INSERT INTO usuario (nomeUsu,sobrenomeUsu,emailUsu,telefoneUsu,
-            senhaUsu,perfilUsu,situacaoUsu) 
+            $sql = "INSERT INTO fornecedor (nomeFor,emailFor,telefoneFor) 
             VALUES (?,?,?)";
             $stmt = $this->pdo->prepare($sql);
 
@@ -98,42 +97,39 @@ class FornecedorDAO{
  }
 
 
-    public function alterarFornecedor(FornecedorDTO $fornecedorDTO)
-    {
-        try {
-            $sql = "UPDATE fornecedor SET 
-            nomeFor = ?, 
-            emailFor = ?, 
-            telefoneFor = ?, 
-           
-            WHERE idFor = ?";
-            $stmt = $this->pdo->prepare($sql);
-    
-            $idFor = $fornecedorDTO->getIdFor();
-            $nomeFor = $fornecedorDTO->getNomeFor();
-            $emailFor = $fornecedorDTO->getEmailFor();
-            $telefoneFor = $fornecedorDTO->getTelefoneFor();
-          
-    
-            $stmt->bindValue(1, $idFor);
-            $stmt->bindValue(2, $nomeFor);
-            $stmt->bindValue(3, $emailFor);
-            $stmt->bindValue(4, $telefoneFor);
-          
-    
-            $retorno = $stmt->execute();
-    
-            // Verifica se a atualização foi bem-sucedida
-           return $retorno;
-    }catch (PDOException $exc) {
-        echo $exc->getMessage();
-
-    }
-}
+ public function alterarFornecedor(FornecedorDTO $fornecedorDTO)
+ {
+     try {
+         $sql = "UPDATE fornecedor SET 
+                 nomeFor = ?, 
+                 emailFor = ?, 
+                 telefoneFor = ? 
+                 WHERE idFor = ?";
+         $stmt = $this->pdo->prepare($sql);
+ 
+         $idFor = $fornecedorDTO->getIdFor();
+         $nomeFor = $fornecedorDTO->getNomeFor();
+         $emailFor = $fornecedorDTO->getEmailFor();
+         $telefoneFor = $fornecedorDTO->getTelefoneFor();
+ 
+         $stmt->bindValue(1, $nomeFor);
+         $stmt->bindValue(2, $emailFor);
+         $stmt->bindValue(3, $telefoneFor);
+         $stmt->bindValue(4, $idFor);
+ 
+         $retorno = $stmt->execute();
+ 
+         // Verifica se a atualização foi bem-sucedida
+         return $retorno;
+     } catch (PDOException $exc) {
+         echo $exc->getMessage();
+     }
+ }
+ 
 
 
     //PesquisarUsuarioPorId
-    public function pesquisarUsuarioPorId($idFor)
+    public function pesquisarForPorId($idFor)
     {
         try {
             $sql = "SELECT * FROM fornecedor WHERE idFor = {$idFor}; ";

@@ -78,8 +78,8 @@ DROP TABLE IF EXISTS `mkm`.`fornecedor` ;
 CREATE TABLE IF NOT EXISTS `mkm`.`fornecedor` (
   `idFor` INT NOT NULL AUTO_INCREMENT,
   `nomeFor` VARCHAR(150) NOT NULL,
-  `telefoneFor` VARCHAR(45) NULL,
   `emailFor` VARCHAR(150) NULL,
+  `telefoneFor` VARCHAR(45) NULL,
   PRIMARY KEY (`idFor`))
 ENGINE = InnoDB;
 

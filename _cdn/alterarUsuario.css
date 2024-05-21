@@ -115,7 +115,10 @@ h1 {
 #emailUsu,
 #perfilUsu,
 #situacaoUsu,
-#telefoneUsu {
+#telefoneUsu,
+#nomeFor,
+#telefoneFor,
+#emailFor {
   margin-top: 1px;
   border-radius: 8px;
   padding: 5px 5px;
