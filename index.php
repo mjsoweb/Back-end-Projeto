@@ -23,29 +23,28 @@ $imagens = [
     ['src' => 'img/saia4.jpg', 'category' => 'Saia', 'title' => 'Saia Mid', 'price' => 'R$ 149,99']
 ];
 
-// Separando as imagens por categoria
-$blusas_e_vestidos = array_filter($imagens, function($img) {
-    return in_array($img['category'], ['Blusa', 'Vestido']);
-});
+// Filtrando as imagens com base na busca
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+if ($search !== '') {
+    $imagens = array_filter($imagens, function($img) use ($search) {
+        return stripos($img['title'], $search) !== false || stripos($img['category'], $search) !== false;
+    });
+}
 
+// Separando as imagens por categoria
 $calcas_e_saias = array_filter($imagens, function($img) {
     return in_array($img['category'], ['Calça', 'Saia']);
 });
 
 // Paginando as imagens
 $imagens_por_pagina = 8;
-$total_paginas_blusas_vestidos = ceil(count($blusas_e_vestidos) / $imagens_por_pagina);
-$total_paginas_calcas_saias = ceil(count($calcas_e_saias) / $imagens_por_pagina);
+$total_paginas = ceil(count($calcas_e_saias) / $imagens_por_pagina);
 
 // Determinar a página atual
 $pagina_atual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-if ($pagina_atual == 1) {
-    $imagens_pagina_atual = array_slice($blusas_e_vestidos, 0, $imagens_por_pagina);
-} elseif ($pagina_atual == 2) {
-    $imagens_pagina_atual = array_slice($calcas_e_saias, 0, $imagens_por_pagina);
-} else {
-    $imagens_pagina_atual = [];
-}
+$offset = ($pagina_atual - 1) * $imagens_por_pagina;
+$imagens_pagina_atual = array_slice($calcas_e_saias, $offset, $imagens_por_pagina);
+
 ?>
 
 <!DOCTYPE html>
@@ -159,7 +158,14 @@ if ($pagina_atual == 1) {
         <p>Aqui você encontra as peças de moda essenciais para realçar seu estilo em sua jornada.</p>
       </header>
 <div class="main_content_cart">
-      
+        <!-- Formulário de busca -->
+  <div class="search_form">
+    <form method="GET" action="">
+      <input type="text" name="search" placeholder="Buscar produtos..." value="<?= htmlspecialchars($search, ENT_QUOTES); ?>">
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+
 
 <div class="main_content_cart">
             <?php foreach ($imagens_pagina_atual as $imagem) : ?>
@@ -433,16 +439,22 @@ if ($pagina_atual == 1) {
     <article class="opt_in">
 
       <div class="opt_in_content" id="vip">
-        <header>
-          <h1>Quer receber todas as novidades em seu e-mail?</h1>
-          <p>Informe o seu nome e e-mail no campo ao lado e clique em Ok!</p>
-        </header>
-        <form>
-          <input type="text" placeholder="Seu nome">
-          <input type="email" placeholder="Seu email">
-          <button type="submit">Ok</button>
-        </form>
-      </div>
+        
+          <header>
+            <h1>Quer receber todas as novidades em seu e-mail?</h1>
+            <p>Informe o seu nome e e-mail no campo ao lado e clique em Ok!</p>
+          </header>
+          
+          
+              <form>
+                <input type="text" placeholder="Seu nome">
+                <input type="email" placeholder="Seu email">
+                <button type="submit">Ok</button>
+              </form>
+            
+       </div>
+        
+      
 
     </article>
 
