@@ -2,6 +2,52 @@
 <?php
 session_start();
 ?>
+<?php
+// Array com os dados das imagens
+$imagens = [
+    ['src' => 'img/blusa1.jpg', 'category' => 'Blusa', 'title' => 'Blusa Canelada', 'price' => 'R$ 39,99'],
+    ['src' => 'img/blusa2.jpg', 'category' => 'Blusa', 'title' => 'Blusa Estampada', 'price' => 'R$ 49,99'],
+    ['src' => 'img/blusa3.jpg', 'category' => 'Blusa', 'title' => 'Blusa Branca', 'price' => 'R$ 69,99'],
+    ['src' => 'img/blusa4.jpg', 'category' => 'Blusa', 'title' => 'Blusa Creme', 'price' => 'R$ 59,99'],
+    ['src' => 'img/vest2.jpg', 'category' => 'Vestido', 'title' => 'Vestido Azul', 'price' => 'R$ 99,99'],
+    ['src' => 'img/vest1.jpg', 'category' => 'Vestido', 'title' => 'Vestido Longo Amarelo', 'price' => 'R$ 109,99'],
+    ['src' => 'img/vest3.jpg', 'category' => 'Vestido', 'title' => 'Vestido Florido', 'price' => 'R$ 99,99'],
+    ['src' => 'img/vest4.jpg', 'category' => 'Vestido', 'title' => 'Vestido Vermelho', 'price' => 'R$ 169,99'],
+    ['src' => 'img/c1.jpg', 'category' => 'Calça', 'title' => 'Calça Preta', 'price' => 'R$ 199,99'],
+    ['src' => 'img/c2.jpg', 'category' => 'Calça', 'title' => 'Calça Jeans', 'price' => 'R$ 159,99'],
+    ['src' => 'img/c3.jpg', 'category' => 'Calça', 'title' => 'Calça Cargo', 'price' => 'R$ 189,99'],
+    ['src' => 'img/c4.jpg', 'category' => 'Calça', 'title' => 'Calça Tactel', 'price' => 'R$ 199,99'],
+    ['src' => 'img/saia1.jpg', 'category' => 'Saia', 'title' => 'Saia Xadrez', 'price' => 'R$ 89,99'],
+    ['src' => 'img/saia2.jpg', 'category' => 'Saia', 'title' => 'Saia Cáqui', 'price' => 'R$ 99,99'],
+    ['src' => 'img/saia3.jpg', 'category' => 'Saia', 'title' => 'Saia Preta', 'price' => 'R$ 109,99'],
+    ['src' => 'img/saia4.jpg', 'category' => 'Saia', 'title' => 'Saia Mid', 'price' => 'R$ 149,99']
+];
+
+// Separando as imagens por categoria
+$blusas_e_vestidos = array_filter($imagens, function($img) {
+    return in_array($img['category'], ['Blusa', 'Vestido']);
+});
+
+$calcas_e_saias = array_filter($imagens, function($img) {
+    return in_array($img['category'], ['Calça', 'Saia']);
+});
+
+// Paginando as imagens
+$imagens_por_pagina = 8;
+$total_paginas_blusas_vestidos = ceil(count($blusas_e_vestidos) / $imagens_por_pagina);
+$total_paginas_calcas_saias = ceil(count($calcas_e_saias) / $imagens_por_pagina);
+
+// Determinar a página atual
+$pagina_atual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+if ($pagina_atual == 1) {
+    $imagens_pagina_atual = array_slice($blusas_e_vestidos, 0, $imagens_por_pagina);
+} elseif ($pagina_atual == 2) {
+    $imagens_pagina_atual = array_slice($calcas_e_saias, 0, $imagens_por_pagina);
+} else {
+    $imagens_pagina_atual = [];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -114,7 +160,25 @@ session_start();
       </header>
 <div class="main_content_cart">
       
-        <article>
+
+<div class="main_content_cart">
+            <?php foreach ($imagens_pagina_atual as $imagem) : ?>
+                <article>
+                    <a href="#">
+                        <img src="<?= $imagem['src']; ?>" width="200" height="320" alt="Imagem <?= $imagem['category']; ?>" title="<?= $imagem['category']; ?>">
+                    </a>
+                    <p><a href="" class="category"><?= $imagem['category']; ?></a></p>
+                    <h2><a href="#"><?= $imagem['title']; ?></a></h2>
+                    <p class="price"><?= $imagem['price']; ?></p>
+                    <div class="actions">
+                        <button class="icon-cart"></button>
+                        <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- <article>
         <a href="#">
           <img src="img/blusa1.jpg" width="200" height="320" alt="Imagem Blusa" title="Blusa">
       </a>
@@ -340,23 +404,28 @@ session_start();
           <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
       </div>
         </article>
-</div>
+</div> -->
     </section>
 
     <!--FIM SESSÃO SESSÃO DE ARTIGOS-->
 
-    <!-- INICIO ALTERNAR PAGINAS-->
-     <nav aria-label="pageNavigation" >
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Página Anterior</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-      
-        <li class="page-item"><a class="page-link" href="#">Próxima</a></li>
-      </ul>
-    </nav> 
-    <!--FIM ALTERNAR PÁGINAS -->
-
+<!-- INICIO ALTERNAR PAGINAS-->
+<nav aria-label="pageNavigation">
+            <ul class="pagination">
+                <?php if ($pagina_atual > 1): ?>
+                    <li class="page-item"><a class="page-link" href="?pagina=<?= $pagina_atual - 1; ?>">Página Anterior</a></li>
+                <?php endif; ?>
+                
+                <?php for ($i = 1; $i <= 2; $i++): // Apenas duas páginas ?>
+                    <li class="page-item <?= ($i == $pagina_atual) ? 'active' : ''; ?>"><a class="page-link" href="?pagina=<?= $i; ?>"><?= $i; ?></a></li>
+                <?php endfor; ?>
+                
+                <?php if ($pagina_atual < 2): ?>
+                    <li class="page-item"><a class="page-link" href="?pagina=<?= $pagina_atual + 1; ?>">Próxima</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav> 
+        <!--FIM ALTERNAR PÁGINAS -->
 
     
 
