@@ -30,10 +30,17 @@ if ($search !== '') {
         return stripos($img['title'], $search) !== false || stripos($img['category'], $search) !== false;
     });
 }
+// Separando as imagens por categoria
+$vestidos_e_blusas = array_filter($imagens, function($img) {
+  return in_array($img['category'], ['Vestido', 'Blusa']);
+});
 
+// Paginando as imagens
+$imagens_por_pagina = 8;
+$total_paginas = ceil(count($vestidos_e_blusas) / $imagens_por_pagina);
 // Separando as imagens por categoria
 $calcas_e_saias = array_filter($imagens, function($img) {
-    return in_array($img['category'], ['Calça', 'Saia']);
+    return in_array($img['category'], ['Vestido', 'Blusa']);
 });
 
 // Paginando as imagens
@@ -171,7 +178,7 @@ $imagens_pagina_atual = array_slice($calcas_e_saias, $offset, $imagens_por_pagin
             <?php foreach ($imagens_pagina_atual as $imagem) : ?>
                 <article>
                     <a href="#">
-                        <img src="<?= $imagem['src']; ?>" width="200" height="320" alt="Imagem <?= $imagem['category']; ?>" title="<?= $imagem['category']; ?>">
+                        <img src="<?= $imagem['src']; ?>" width="320" height="320" alt="Imagem <?= $imagem['category']; ?>" title="<?= $imagem['category']; ?>">
                     </a>
                     <p><a href="" class="category"><?= $imagem['category']; ?></a></p>
                     <h2><a href="#"><?= $imagem['title']; ?></a></h2>
@@ -184,233 +191,7 @@ $imagens_pagina_atual = array_slice($calcas_e_saias, $offset, $imagens_por_pagin
             <?php endforeach; ?>
         </div>
 
-        <!-- <article>
-        <a href="#">
-          <img src="img/blusa1.jpg" width="200" height="320" alt="Imagem Blusa" title="Blusa">
-      </a>
-      <p><a href="" class="category">Blusa</a></p>
-      <h2><a href="#">
-  Blusa Canelada
-        </a></h2>
-      <p class="price">R$ 39,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/blusa2.jpg" width="200" height="320" alt="Imagem Blusa" title="Blusa">
-      </a>
-      <p><a href="" class="category">Blusa</a></p>
-      <h2><a href="#">
-          Blusa Estampada
-        </a></h2>
-      <p class="price">R$ 49,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/blusa3.jpg" width="200" height="320" alt="Imagem Blusa" title="Blusa">
-      </a>
-      <p><a href="" class="category">Blusa</a></p>
-      <h2><a href="#">
-      Blusa Branca
-        </a></h2>
-      <p class="price">R$ 69,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/blusa4.jpg" width="200" height="320" alt="Imagem Blusa" title="Blusa">
-      </a>
-      <p><a href="" class="category">Blusa</a></p>
-      <h2><a href="#">
-         Blusa Creme
-        </a></h2>
-      <p class="price">R$ 59,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-          <a href="#">
-            <img src="img/vest2.jpg" width="200" height="320" alt="Imagem Vestido" title="Vestido">
-          </a>
-          <p><a href="" class="category">Vestido</a></p>
-          <h2><a href="#">
-            Vestido Azul
-        </a></h2>
-      <p class="price">R$ 99,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-          <a href="#">
-            <img src="img/vest1.jpg" width="200" height="320" alt="Imagem Vestido" title="Vestido">
-      </a>
-      <p><a href="" class="category">Vestido</a></p>
-      <h2><a href="#">
-          Vestido Longo Amarelo
-        </a></h2>
-      <p class="price">R$ 109,99</p>
-      <div class="actions">
-        <button class="icon-cart"></button>
-        <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/vest3.jpg" width="200" height="320" alt="Imagem Vestido" title="Vestido">
-        </a>
-        <p><a href="" class="category">Vestido</a></p>
-        <h2><a href="#">
-          Vestido Florido
-        </a></h2>
-      <p class="price">R$99,99</p>
-      <div class="actions">
-        <button class="icon-cart"></button>
-        <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-    </article>
-        <article>
-          <a href="#">
-          <img src="img/vest4.jpg" width="200" height="320" alt="Imagem Vestido" title="Vestido">
-        </a>
-        <p><a href="" class="category">Vestido</a></p>
-        <h2><a href="#">
-          Vestido Vermelho
-        </a></h2>
-        <p class="price">R$ 169,99</p>
-        <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-    </article>
-    <article>
-        <a href="#">
-          <img src="img/c1.jpg" width="200" height="320" alt="Imagem Calça" title="Calça">
-        </a>
-        <p><a href="" class="category">Calça</a></p>
-        <h2><a href="#">
-        Calça Preta
-        </a></h2>
-        <p class="price">R$ 199,99</p>
-        <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-        </div>
-    </article>
-        <article>
-        <a href="#">
-          <img src="img/c2.jpg" width="200" height="320" alt="Imagem Calça" title="Calça">
-      </a>
-      <p><a href="" class="category">Calça</a></p>
-      <h2><a href="#">
-      Calça Jeans
-
-        </a></h2>
-      <p class="price">R$ 159,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/c3.jpg" width="200" height="320" alt="Imagem Calça" title="Calça">
-      </a>
-      <p><a href="" class="category">Calça</a></p>
-      <h2><a href="#">
-      Calça Cargo
-        </a></h2>
-      <p class="price">R$ 189,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/c4.jpg" width="200" height="320" alt="Imagem Calça" title="Calça">
-      </a>
-      <p><a href="" class="category">Calça</a></p>
-      <h2><a href="#">
-         Calça Tactel
-        </a></h2>
-      <p class="price">R$ 199,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/saia1.jpg" width="200" height="320" alt="Imagem Saia" title="Saia">
-      </a>
-      <p><a href="" class="category">Saia</a></p>
-      <h2><a href="#">
-         Saia Xadrez
-        </a></h2>
-      <p class="price">R$ 89,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-          <a href="#">
-          <img src="img/saia2.jpg" width="200" height="320" alt="Imagem Saia" title="Saia">
-      </a>
-      <p><a href="" class="category">Calça</a></p>
-      <h2><a href="#">
-      Saia Cáqui        
-    </a></h2>
-      <p class="price">R$ 99,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-          <a href="#">
-          <img src="img/saia3.jpg" width="200" height="320" alt="Imagem Saia" title="Saia">
-      </a>
-      <p><a href="" class="category">Saia</a></p>
-      <h2><a href="#">
-      Saia Preta
-        </a></h2>
-      <p class="price">R$ 109,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-        <article>
-        <a href="#">
-          <img src="img/saia4.jpg" width="200" height="320" alt="Imagem Saia" title="Saia">
-      </a>
-      <p><a href="" class="category">Saia</a></p>
-      <h2><a href="#">
-         Saia Mid
-        </a></h2>
-      <p class="price">R$ 149,99</p>
-      <div class="actions">
-          <button class="icon-cart"></button>
-          <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-      </div>
-        </article>
-</div> -->
+        
     </section>
 
     <!--FIM SESSÃO SESSÃO DE ARTIGOS-->
