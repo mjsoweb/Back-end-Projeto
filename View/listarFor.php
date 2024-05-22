@@ -56,7 +56,7 @@ require_once '../Control/listarForController.php';
     </header>
 
     <div class="list_container">
-        <h1>Listagem de Dados</h1>
+        <h1>Listagem de Fornecedores</h1>
     </div>
 
     <table>

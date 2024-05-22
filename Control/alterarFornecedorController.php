@@ -20,7 +20,7 @@ require_once '../Model/DAO/FornecedorDAO.php';
   $sucesso = $fornecedorDAO->alterarFornecedor($fornecedorDTO);
 
   if ($sucesso) {
-  // json_encode(["success" => true, "message" => "Fornecedor alterado com sucesso!"]);
+   //json_encode(["success" => true, "message" => "Fornecedor alterado com sucesso!"]);
  } else {
   // json_encode(["success" => false, "message" => "Aconteceu um problema ao alterar o usuário!"]);
  }

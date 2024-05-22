@@ -73,6 +73,7 @@ body {
 .form .form-align {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .form .form-name {

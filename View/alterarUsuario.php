@@ -54,7 +54,7 @@ require_once '../Control/listarUsuariosController.php';
           <th><p>Nome:</p> <input type="text" name="nomeUsu" id="nomeUsu" value="<?php echo $usuario_selecionado['nomeUsu']; ?>" required></th>
           <th><p>Sobrenome:</p> <input type="text" name="sobrenomeUsu" id="sobrenomeUsu" value="<?php echo $usuario_selecionado["sobrenomeUsu"]; ?>" required></th>
           <th><p>Email:</p> <input type="email" name="emailUsu" id="emailUsu" value="<?php echo $usuario_selecionado["emailUsu"]; ?>" required></th>
-          <th><p>Celular:</p> <input type="tel" name="telefoneUsu" id="telefoneUsu" maxlength="11" value="<?php echo $usuario_selecionado["telefoneUsu"]; ?>" required></th>
+          <th><p>Celular:</p> <input type="tel" name="telefoneUsu" id="telefoneUsu" maxlength="15"  pattern="\([0-9]{2}\)\s[0-9]{4,5}-[0-9]{4}" title="Formato: (xx) xxxxx-xxxx"  value="<?php echo $usuario_selecionado["telefoneUsu"]; ?>" required></th>
           <th><p>Perfil:</p> <input type="text" name="perfilUsu" id="perfilUsu" value="<?php echo $usuario_selecionado["perfilUsu"]; ?>" required></th>
           <th><p>Situação:</p> <input type="text" name="situacaoUsu" id="situacaoUsu" value="<?php echo $usuario_selecionado["situacaoUsu"]; ?>" required></th>
         </tr>
@@ -97,6 +97,20 @@ require_once '../Control/listarUsuariosController.php';
       });
     });
 });
+
+
+    // Função para formatar o campo de telefone
+    document.getElementById('telefoneUsu').addEventListener('input', function(event) {
+      let phone = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
+      if (phone.length > 0) {
+        if (phone.length <= 10) {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6, 10);
+        } else {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
+        }
+      }
+      event.target.value = phone;
+    });
     </script>
   </main>
 </body>

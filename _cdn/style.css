@@ -75,6 +75,7 @@ html {
   font-weight: 700;
   text-align: center;
   text-shadow: 2px 2px #2a091a;
+  margin-top: 40px;
 }
 .main_cta_content p {
   font-size: 1.875em;

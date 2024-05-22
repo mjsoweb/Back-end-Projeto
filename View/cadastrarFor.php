@@ -41,7 +41,7 @@
               </div>
               <div class="form-name">
                 <label for="telefoneFor">Celular</label>
-                <input id="telefoneFor" name="telefoneFor" type="tel"  maxlength="11" placeholder="(xx) xxxx-xxxx" required
+                <input id="telefoneFor" name="telefoneFor" type="tel"  maxlength="15"    pattern="\([0-9]{2}\)\s[0-9]{4,5}-[0-9]{4}" title="Formato: (xx) xxxxx-xxxx" placeholder="(xx) xxxx-xxxx" required
                />
               </div>
               </div>
@@ -95,18 +95,18 @@
     });
 
 
-    // // Função para formatar o campo de telefone
-    // document.getElementById('telefoneFor').addEventListener('input', function(event) {
-    //   let phone = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
-    //   if (phone.length > 0) {
-    //     if (phone.length <= 10) {
-    //       phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6, 10);
-    //     } else {
-    //       phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
-    //     }
-    //   }
-    //   event.target.value = phone;
-    // });
+    // Função para formatar o campo de telefone
+    document.getElementById('telefoneFor').addEventListener('input', function(event) {
+      let phone = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
+      if (phone.length > 0) {
+        if (phone.length <= 10) {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6, 10);
+        } else {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
+        }
+      }
+      event.target.value = phone;
+    });
   </script>
 
   </script>

@@ -50,7 +50,7 @@
 
             <div class="form-name">
               <label for="telefoneUsu"> Celular</label>
-              <input id="telefoneUsu" name="telefoneUsu" type="tel"  maxlength="11" minlength="11" placeholder="(xx) xxxx-xxxx" required />
+              <input id="telefoneUsu" name="telefoneUsu" type="tel"  maxlength="15" placeholder="(xx) xxxx-xxxx" required />
             </div>
           </div>
 
@@ -132,6 +132,21 @@
           console.error('Error:', error);
         });
     });
+
+
+    // Função para formatar o campo de telefone
+    document.getElementById('telefoneUsu').addEventListener('input', function(event) {
+      let phone = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
+      if (phone.length > 0) {
+        if (phone.length <= 10) {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6, 10);
+        } else {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
+        }
+      }
+      event.target.value = phone;
+    });
+
 
   </script>
 </body>

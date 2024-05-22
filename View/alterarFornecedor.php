@@ -53,7 +53,7 @@ require_once '../Control/listarForController.php';
         <tr>
           <th><p>Nome:</p> <input type="text" name="nomeFor" id="nomeFor" value="<?php echo $usuario_selecionado['nomeFor']; ?>" required></th>
           <th><p>Email:</p> <input type="email" name="emailFor" id="emailFor" value="<?php echo $usuario_selecionado["emailFor"]; ?>" required></th>
-          <th><p>Celular:</p> <input type="tel" name="telefoneFor" id="telefoneFor" maxlength="11" value="<?php echo $usuario_selecionado["telefoneFor"]; ?>" required></th>
+          <th><p>Celular:</p> <input type="tel" name="telefoneFor" id="telefoneFor" maxlength="15"   pattern="\([0-9]{2}\)\s[0-9]{4,5}-[0-9]{4}" title="Formato: (xx) xxxxx-xxxx" value="<?php echo $usuario_selecionado["telefoneFor"]; ?>" required></th>
         </tr>
       </table>
       <button type="submit">Salvar Alteração</button>
@@ -96,6 +96,21 @@ require_once '../Control/listarForController.php';
       });
     });
 });
+
+
+
+    // Função para formatar o campo de telefone
+    document.getElementById('telefoneFor').addEventListener('input', function(event) {
+      let phone = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
+      if (phone.length > 0) {
+        if (phone.length <= 10) {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6, 10);
+        } else {
+          phone = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
+        }
+      }
+      event.target.value = phone;
+    });
     </script>
 
   
