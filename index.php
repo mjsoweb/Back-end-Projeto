@@ -30,27 +30,33 @@ if ($search !== '') {
         return stripos($img['title'], $search) !== false || stripos($img['category'], $search) !== false;
     });
 }
+
 // Separando as imagens por categoria
 $vestidos_e_blusas = array_filter($imagens, function($img) {
-  return in_array($img['category'], ['Vestido', 'Blusa']);
-});
-
-// Paginando as imagens
-$imagens_por_pagina = 8;
-$total_paginas = ceil(count($vestidos_e_blusas) / $imagens_por_pagina);
-// Separando as imagens por categoria
-$calcas_e_saias = array_filter($imagens, function($img) {
     return in_array($img['category'], ['Vestido', 'Blusa']);
 });
 
-// Paginando as imagens
-$imagens_por_pagina = 8;
-$total_paginas = ceil(count($calcas_e_saias) / $imagens_por_pagina);
+$calcas_e_saias = array_filter($imagens, function($img) {
+    return in_array($img['category'], ['Calça', 'Saia']);
+});
 
 // Determinar a página atual
 $pagina_atual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$imagens_por_pagina = 8;
 $offset = ($pagina_atual - 1) * $imagens_por_pagina;
-$imagens_pagina_atual = array_slice($calcas_e_saias, $offset, $imagens_por_pagina);
+
+// Selecionando as imagens de acordo com a categoria
+if ($pagina_atual == 1) {
+    $imagens_pagina_atual = array_slice($vestidos_e_blusas, $offset, $imagens_por_pagina);
+} else if ($pagina_atual == 2) {
+    $imagens_pagina_atual = array_slice($calcas_e_saias, $offset - count($vestidos_e_blusas), $imagens_por_pagina);
+} else {
+    // Se estiver em uma página além da primeira e segunda, mostra todas as imagens de acordo com a página
+    $imagens_pagina_atual = array_slice($imagens, $offset, $imagens_por_pagina);
+}
+
+// Total de páginas
+$total_paginas = ceil(count($imagens) / $imagens_por_pagina);
 
 ?>
 
