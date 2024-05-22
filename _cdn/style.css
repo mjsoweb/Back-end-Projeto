@@ -666,3 +666,36 @@ form {
 } */
 
 /* FIM BOTOES DE COMPRA  */
+
+
+
+/* INICIO BUSCAR  */
+.search_form {
+  display: flex;
+  align-items: center;
+}
+
+.search_form input[type="text"] {
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  outline: none;
+  width: 200px;
+  margin-bottom: 40px;
+}
+
+.search_form button {
+  padding: 10px 20px;
+  background-color: #d73186;
+  color: white;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search_form button:hover {
+  background-color: #905585;
+}
+
+/* FIM BUSCAR */
