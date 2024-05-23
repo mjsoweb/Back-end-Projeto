@@ -23,7 +23,6 @@
       <div class="back">
           <a href="../index.php">Voltar</a>
         </div>
-      <div class="form">
         <header>
           <h1>Entrar</h1>
         </header>
@@ -40,11 +39,10 @@
           <input type="submit" value="Entrar">
           <a href="../View/cadastrarUsu.php">É novo aqui? Cadastre-se agora</a>
         </div>
-      </div>
       
 
-  </main>
   </form>
+  </main>
 </body>
 
 </html>
