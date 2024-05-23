@@ -83,6 +83,7 @@ body {
   font-weight: 600;
   max-width: 45%;
   min-width: 45%;
+  margin-bottom: 12px;
 }
 
 div header {
