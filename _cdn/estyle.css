@@ -15,7 +15,8 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
+  max-width: 1300px;
   height: 70vh;
   display: flex;
   margin: 0 auto;
