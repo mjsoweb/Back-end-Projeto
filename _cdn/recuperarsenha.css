@@ -61,7 +61,7 @@ form {
   background-color: #f8fbfd;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 2em;
 }
 
