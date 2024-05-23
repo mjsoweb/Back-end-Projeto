@@ -51,11 +51,6 @@ body {
 .back {
   display: flex;
   flex-direction: row-reverse;
-
-  font-weight: 400;
-  text-decoration: underline;
-  font-size: 0.8em;
-  color: #5f06a3;
 }
 .form {
   background-image: url(../img/logo.png);
