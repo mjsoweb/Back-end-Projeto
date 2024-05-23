@@ -69,10 +69,8 @@
         </div>
         <div class="botao">
           <input type="submit" value="Cadastrar">
+          <a href="../View/loginUsu.php">Já tem uma conta? Entrar agora</a>
         </div>
-        <div class="entrar">
-            <a href="../View/loginUsu.php">Já tem uma conta? Entrar agora</a>
-          </div>
         <input type="hidden" name="perfilUsu" value="Cliente">
         <input type="hidden" name="situacaoUsu" value="Ativo">
       </form>
