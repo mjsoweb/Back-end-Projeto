@@ -166,6 +166,17 @@ input::placeholder {
   font-size: 0.9em;
 }
 
+a {
+  font-weight: 400;
+  text-decoration: underline;
+  font-size: 0.8em;
+  color: #5f06a3;
+}
+
+a:hover {
+  color: #dd10cc9a;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column; /* Altera para empilhamento em telas menores */
@@ -189,35 +200,4 @@ input::placeholder {
   div .cont {
     padding: 0 20px; /* Reduz o preenchimento para telas menores */
   }
-}
-.login a {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-  margin-top: 1px;
-  border-radius: 8px;
-  padding: 6px 8px;
-  border: 1px solid #5f06a34f;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
-  outline-color: #5f06a34f;
-  height: 50px;
-  background-color: #6006a3e3; /* Adicionando cor de fundo */
-  color: aliceblue; /* Alterando a cor do texto */
-  cursor: pointer; /* Alterando o cursor para indicar que é clicável */
-  transition: background-color 0.3s ease; /* Adicionando uma transição suave */
-  margin-bottom: 300px;
-}
-
-.login a:hover {
-  background-color: #310553e3; /* Alterando a cor de fundo ao passar o mouse */
-}
-.entrar a {
-  font-weight: 400;
-  text-decoration: underline;
-  font-size: 0.8em;
-  color: #5f06a3;
-  display: flex;
-  justify-content: center;
-  margin-top: 0px 0px;
 }
