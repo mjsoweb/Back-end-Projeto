@@ -47,8 +47,8 @@ class FornecedorDAO{
           
 
             $stmt->bindValue(1, $nomeFor);
-            $stmt->bindValue(2, $telefoneFor);
-            $stmt->bindValue(3, $emailFor);
+            $stmt->bindValue(2, $emailFor);
+            $stmt->bindValue(3, $telefoneFor);
      
 
             $retorno = $stmt->execute();
