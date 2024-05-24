@@ -22,7 +22,6 @@ $imagens = [
     ['src' => 'img/saia3.jpg', 'category' => 'Saia', 'title' => 'Saia Preta', 'price' => 'R$ 109,99'],
     ['src' => 'img/saia4.jpg', 'category' => 'Saia', 'title' => 'Saia Mid', 'price' => 'R$ 149,99']
 ];
-
 // Filtrando as imagens com base na busca
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 if ($search !== '') {
