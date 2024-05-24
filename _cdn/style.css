@@ -176,7 +176,7 @@ html {
 
 .main_blog article img {
   width: 100%;
-   height: 100%;
+  /* height: 100%; */
   border-radius: 8px;
 }
 
@@ -234,10 +234,13 @@ html {
   margin: 0 auto;
   display: flex;
 }
-.opt_in content header,
-form {
+.opt_in_content > header {
   flex-basis: 50%;
 }
+.opt_in_content > form {
+  flex-basis: 50%;
+}
+
 .opt_in_content header h1 {
   color: #fff;
   text-align: right;
@@ -667,8 +670,6 @@ form {
 } */
 
 /* FIM BOTOES DE COMPRA  */
-
-
 
 /* INICIO BUSCAR  */
 .search_form {
