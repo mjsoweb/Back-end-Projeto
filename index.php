@@ -22,7 +22,40 @@ $imagens = [
     ['src' => 'img/saia3.jpg', 'category' => 'Saia', 'title' => 'Saia Preta', 'price' => 'R$ 109,99'],
     ['src' => 'img/saia4.jpg', 'category' => 'Saia', 'title' => 'Saia Mid', 'price' => 'R$ 149,99']
 ];
-// Filtrando as imagens com base na busca
+
+
+// Inicializa a variável de busca
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+$category = isset($_GET['category']) ? trim($_GET['category']) : '';
+
+// Filtrando as imagens com base na busca e na categoria
+$imagens_filtradas = $imagens;
+
+if ($search !== '') {
+    $imagens_filtradas = array_filter($imagens_filtradas, function($img) use ($search) {
+        return stripos($img['title'], $search) !== false || stripos($img['category'], $search) !== false;
+    });
+}
+
+if ($category !== '') {
+    $imagens_filtradas = array_filter($imagens_filtradas, function($img) use ($category) {
+        return stripos($img['category'], $category) !== false;
+    });
+}
+
+// Determinar a página atual
+$pagina_atual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+$imagens_por_pagina = 8;
+$offset = ($pagina_atual - 1) * $imagens_por_pagina;
+
+// Selecionando as imagens para a página atual
+$imagens_pagina_atual = array_slice($imagens_filtradas, $offset, $imagens_por_pagina);
+
+// Total de páginas
+$total_paginas = ceil(count($imagens_filtradas) / $imagens_por_pagina);
+?>
+
+<!-- // Filtrando as imagens com base na busca
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 if ($search !== '') {
     $imagens = array_filter($imagens, function($img) use ($search) {
@@ -57,7 +90,7 @@ if ($pagina_atual == 1) {
 // Total de páginas
 $total_paginas = ceil(count($imagens) / $imagens_por_pagina);
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -134,31 +167,31 @@ $total_paginas = ceil(count($imagens) / $imagens_por_pagina);
     <!--FIM 1ª DOBRA-->
      <!-- INICIO CATEGORIAS   -->
      <div class="categories">
-      <div class="category">
-        <h2>Vestidos</h2>
+    <div class="category">
+        <h2><a href="?category=Vestido">Vestidos</a></h2>
         <div class="main_content_image">
-          <img src="img/cvestido.png" alt="Vestido" />
+            <img src="img/cvestido.png" alt="Vestido" />
         </div>
-      </div>
-      <div class="category">
-        <h2>Saias</h2>
-        <div class="main_content_image">
-          <img src="img/csaia.png" alt="Saia" />
-        </div>
-      </div>
-      <div class="category">
-        <h2>Blusas</h2>
-        <div class="main_content_image">
-          <img src="img/cblusa.png" alt="Blusa" />
-        </div>
-      </div>
-      <div class="category">
-        <h2>Calças</h2>
-        <div class="main_content_image">
-          <img src="img/ccalca.png" alt="Calça" />
-        </div>
-      </div>
     </div>
+    <div class="category">
+        <h2><a href="?category=Saia">Saias</a></h2>
+        <div class="main_content_image">
+            <img src="img/csaia.png" alt="Saia" />
+        </div>
+    </div>
+    <div class="category">
+        <h2><a href="?category=Blusa">Blusas</a></h2>
+        <div class="main_content_image">
+            <img src="img/cblusa.png" alt="Blusa" />
+        </div>
+    </div>
+    <div class="category">
+        <h2><a href="?category=Calça">Calças</a></h2>
+        <div class="main_content_image">
+            <img src="img/ccalca.png" alt="Calça" />
+        </div>
+    </div>
+</div>
 <!-- FIM CATEGORIAS  -->
     <!--INICIO SESSÃO SESSÃO DE ARTIGOS-->
     <section class="main_blog" id="categorias">
@@ -178,45 +211,44 @@ $total_paginas = ceil(count($imagens) / $imagens_por_pagina);
     </form>
   </div>
 
-
+<!-- Exibição dos produtos -->
 <div class="main_content_cart">
-            <?php foreach ($imagens_pagina_atual as $imagem) : ?>
-                <article>
-                    <a href="#">
-                        <img src="<?= $imagem['src']; ?>" width="320" height="320" alt="Imagem <?= $imagem['category']; ?>" title="<?= $imagem['category']; ?>">
-                    </a>
-                    <p><a href="" class="category"><?= $imagem['category']; ?></a></p>
-                    <h2><a href="#"><?= $imagem['title']; ?></a></h2>
-                    <p class="price"><?= $imagem['price']; ?></p>
-                    <div class="actions">
-                        <button class="icon-cart"></button>
-                        <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
-                    </div>
-                </article>
-            <?php endforeach; ?>
-        </div>
-
-        
+    <?php foreach ($imagens_pagina_atual as $imagem) : ?>
+        <article>
+            <a href="#">
+                <img src="<?= $imagem['src']; ?>" width="320" height="320" alt="Imagem <?= $imagem['category']; ?>" title="<?= $imagem['category']; ?>">
+            </a>
+            <p><a href="" class="category"><?= $imagem['category']; ?></a></p>
+            <h2><a href="#"><?= $imagem['title']; ?></a></h2>
+            <p class="price"><?= $imagem['price']; ?></p>
+            <div class="actions">
+                <button class="icon-cart"></button>
+                <div class="main_content_button_buy"><button onclick="buyNow()">Comprar Agora</button></div>
+            </div>
+        </article>
+    <?php endforeach; ?>
+</div>
     </section>
 
     <!--FIM SESSÃO SESSÃO DE ARTIGOS-->
 
 <!-- INICIO ALTERNAR PAGINAS-->
+<!-- Paginação -->
 <nav aria-label="pageNavigation">
-            <ul class="pagination">
-                <?php if ($pagina_atual > 1): ?>
-                    <li class="page-item"><a class="page-link" href="?pagina=<?= $pagina_atual - 1; ?>">Página Anterior</a></li>
-                <?php endif; ?>
-                
-                <?php for ($i = 1; $i <= 2; $i++): // Apenas duas páginas ?>
-                    <li class="page-item <?= ($i == $pagina_atual) ? 'active' : ''; ?>"><a class="page-link" href="?pagina=<?= $i; ?>"><?= $i; ?></a></li>
-                <?php endfor; ?>
-                
-                <?php if ($pagina_atual < 2): ?>
-                    <li class="page-item"><a class="page-link" href="?pagina=<?= $pagina_atual + 1; ?>">Próxima</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav> 
+    <ul class="pagination">
+        <?php if ($pagina_atual > 1): ?>
+            <li class="page-item"><a class="page-link" href="?pagina=<?= $pagina_atual - 1; ?>&search=<?= urlencode($search); ?>">Página Anterior</a></li>
+        <?php endif; ?>
+        
+        <?php for ($i = 1; $i <= $total_paginas; $i++): ?>
+            <li class="page-item <?= ($i == $pagina_atual) ? 'active' : ''; ?>"><a class="page-link" href="?pagina=<?= $i; ?>&search=<?= urlencode($search); ?>"><?= $i; ?></a></li>
+        <?php endfor; ?>
+        
+        <?php if ($pagina_atual < $total_paginas): ?>
+            <li class="page-item"><a class="page-link" href="?pagina=<?= $pagina_atual + 1; ?>&search=<?= urlencode($search); ?>">Próxima</a></li>
+        <?php endif; ?>
+    </ul>
+</nav>
         <!--FIM ALTERNAR PÁGINAS -->
 
     

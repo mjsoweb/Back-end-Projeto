@@ -82,7 +82,8 @@ CREATE TABLE IF NOT EXISTS `mkm`.`fornecedor` (
   `telefoneFor` VARCHAR(45) NULL,
   PRIMARY KEY (`idFor`))
 ENGINE = InnoDB;
-
+-- Insere o administrador do sistema
+INSERT INTO `fornecedor` (`idFor`, `nomeFor`, `emailFor`, `telefoneFor`) VALUES (01, 'Shein', 'shein@gmail.com', '(11) 98578-1408');
 
 -- -----------------------------------------------------
 -- Table `mkm`.`produto`

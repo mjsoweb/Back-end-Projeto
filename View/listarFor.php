@@ -62,8 +62,8 @@ require_once '../Control/listarForController.php';
     <table>
         <tr>
             <th>Nome</th>
-            <th>Celular</th>
             <th>Email</th>
+            <th>Celular</th>
             <th>Alterar</th>
             <th>Excluir</th>
         </tr>
