@@ -180,7 +180,7 @@ html {
   border-radius: 8px;
 }
 
-.category {
+.category a {
   margin: 10px 0;
   font-size: 0.875em;
   color: #4f194d;
