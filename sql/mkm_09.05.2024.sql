@@ -46,6 +46,8 @@ ENGINE = InnoDB;
 
 INSERT INTO `usuario` (`idUsu`, `nomeUsu`, `sobrenomeUsu`, `cpfUsu`, `telefoneUsu`, `emailUsu`, `senhaUsu`, `perfilUsu`, `situacaoUsu`, `cepUsu`, `ruaUsu`, `numeroUsu`, `complementoUsu`, `bairroUsu`, `cidadeUsu`, `ufUsu`) VALUES
 (13, 'Admistrador', 'Do Sistema', NULL, '61998875481', 'adm@gmail.com', '202cb962ac59075b964b07152d234b70', 'Administrador', 'Ativo', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `usuario` (`idUsu`, `nomeUsu`, `sobrenomeUsu`, `cpfUsu`, `telefoneUsu`, `emailUsu`, `senhaUsu`, `perfilUsu`, `situacaoUsu`, `cepUsu`, `ruaUsu`, `numeroUsu`, `complementoUsu`, `bairroUsu`, `cidadeUsu`, `ufUsu`) VALUES
+(13, 'Maria', 'Dias', NULL, '61999888778', 'maria@gmail.com', '202cb962ac59075b964b07152d234b70', 'Cliente', 'Ativo', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- -----------------------------------------------------
@@ -83,7 +85,8 @@ CREATE TABLE IF NOT EXISTS `mkm`.`fornecedor` (
   PRIMARY KEY (`idFor`))
 ENGINE = InnoDB;
 -- Insere o administrador do sistema
-INSERT INTO `fornecedor` (`idFor`, `nomeFor`, `emailFor`, `telefoneFor`) VALUES (01, 'Shein', 'shein@gmail.com', '(11) 98578-1408');
+INSERT INTO `fornecedor` (`idFor`, `nomeFor`, `emailFor`, `telefoneFor`) VALUES (01, 'Shein', 'shein@gmail.com', '(74) 98578-1408');
+INSERT INTO `fornecedor` (`idFor`, `nomeFor`, `emailFor`, `telefoneFor`) VALUES (02, 'Marisa', 'marisa@gmail.com', '(11) 99548-9998');
 
 -- -----------------------------------------------------
 -- Table `mkm`.`produto`
@@ -109,7 +112,9 @@ CREATE TABLE IF NOT EXISTS `mkm`.`produto` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
+INSERT INTO `produto` (`idPro`, `nomePro`, `valorCompraPro`, `valorVendaPro`, `qtdEstoquePro`, `imagemPro`, `qtdEstoqueMinimoPro`, `codigoPro`, `fornecedor_idFor`) VALUES (NULL, 'Blusa Canelada', '19.90', '39.99', '200', 'Blusa', '50', NULL, '12');
+INSERT INTO `produto` (`idPro`, `nomePro`, `valorCompraPro`, `valorVendaPro`, `qtdEstoquePro`, `imagemPro`, `qtdEstoqueMinimoPro`, `codigoPro`, `fornecedor_idFor`) VALUES (NULL, 'Vestido Azul', '40.00', '99.99', '300', 'Vestido', '50', NULL, '12');
+INSERT INTO `produto` (`idPro`, `nomePro`, `valorCompraPro`, `valorVendaPro`, `qtdEstoquePro`, `imagemPro`, `qtdEstoqueMinimoPro`, `codigoPro`, `fornecedor_idFor`) VALUES (NULL, 'Calça Cargo', '70.00', '189.99', '500', 'Calça', '85', NULL, '12');
 -- -----------------------------------------------------
 -- Table `mkm`.`itemProduto`
 -- -----------------------------------------------------
