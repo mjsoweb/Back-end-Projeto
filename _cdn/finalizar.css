@@ -10,18 +10,19 @@
 #checkout-page {
   background: radial-gradient(
     circle,
-    rgba(202, 89, 149, 0.2) 0%,
-    rgba(202, 89, 149, 0.25) 10%,
-    rgba(202, 89, 149, 0.3) 20%,
-    rgba(202, 89, 149, 0.35) 30%,
-    rgba(202, 89, 149, 0.4) 30%,
-    rgba(202, 89, 149, 0.45) 50%,
-    rgba(202, 89, 149, 0.5) 60%,
-    rgba(202, 89, 149, 0.55) 70%,
-    rgba(202, 89, 149, 0.6) 80%,
-    rgba(202, 89, 149, 0.65) 90%,
-    #ca5995b3 100%
+    rgba(202, 89, 149, 0.4) 0%,
+    rgba(202, 89, 149, 0.45) 10%,
+    rgba(202, 89, 149, 0.5) 20%,
+    rgba(202, 89, 149, 0.55) 30%,
+    rgba(202, 89, 149, 0.6) 30%,
+    rgba(202, 89, 149, 0.65) 50%,
+    rgba(202, 89, 149, 0.7) 60%,
+    rgba(202, 89, 149, 0.75) 70%,
+    rgba(202, 89, 149, 0.8) 80%,
+    rgba(202, 89, 149, 0.85) 90%,
+    #ca5995 100%
   );
+
   color: var(--primary-color);
 }
 
@@ -92,7 +93,7 @@
 }
 
 .step p {
-  color: var(--text-color);
+  /* color: var(--text-color); */
 }
 
 .line {
@@ -106,7 +107,7 @@
 
 /* Form header */
 #form-header p {
-  color: var(--text-color);
+  /* color: var(--text-color); */
 }
 
 /* Form */
@@ -158,7 +159,4 @@
   #save-btn {
     width: 8em;
   }
-}
-.h2 {
-  color: #000;
 }
