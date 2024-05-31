@@ -83,7 +83,7 @@ require_once '../Control/listarForController.php';
       
       Swal.fire({
         icon: 'success',
-        title: 'Usuário alterado com sucesso :)',
+        title: 'Fornecedor alterado com sucesso :)',
         text: data.message, 
       });
     })
