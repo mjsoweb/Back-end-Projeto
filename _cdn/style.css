@@ -48,6 +48,13 @@ html {
 .main_header_content_menu span {
   color: #7958ad;
   font-size: 1.1em;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  
 }
 .main_header_content_menu ul li a:hover {
   background-color: #ff015609;
